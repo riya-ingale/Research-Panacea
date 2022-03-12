@@ -111,6 +111,9 @@ class Events(models.Model):
     speaker = models.CharField(max_length = 200, null=True)
     domain = models.TextField(null=True)
     website = models.TextField(null=True)
+    event_details = models.TextField(null=True)
+    contact_number = models.CharField(max_length=200,null=True)
+    
 
 class UserEvent(models.Model):
     user_id = models.IntegerField(null=True)

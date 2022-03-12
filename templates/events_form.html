@@ -14,14 +14,16 @@
   <body>
     <section class="get_in_touch">
     <h1 class="title">Post Your Event</h1>
+    <form action="/conference/registeration" method="post">
+      {% csrf_token %}
     <div class="container">
       <div class="contact-form row">
         <div class="form-field col-lg-6">
-          <input id="name" class="input-text" type="text" name="">
-          <label for="name" class="label">event name</label>
+          <input id="name" class="input-text" type="text" name="event_name">
+          <label for="name" class="label">Event Name</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="date" class="input-text" type="date" name="">
+          <input id="date" class="input-text" type="date" name="date">
           <script>
             var date = new Date();
             document.getElementById("date-picker").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
@@ -30,73 +32,75 @@
         </div>
 
         <div class="form-field col-lg-6">
-          <input id="venue" class="input-text" type="text" name="">
-          <label for="venue" class="label">venue</label>
+          <input id="venue" class="input-text" type="text" name="venue">
+          <label for="venue" class="label">Venue</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="phone" class="input-text" type="text" name="">
-          <label for="phone" class="label">contact number</label>
+          <input id="phone" class="input-text" type="text" name="contact">
+          <label for="phone" class="label">Contact Number</label>
         </div>
         <div class="form-field col-lg-12">
-          <input id="about the event" class="input-text" type="text" name="">
-          <label for="about" class="label">about the event</label>
+          <textarea placeholder="" rows="2" class="input-text" name="about"></textarea>
+          <label for="about" class="label">About the Event</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="email" class="input-text" type="text" name="">
-          <label for="email" class="label">email</label>
+          <input id="committee" class="input-text" type="text" name="speaker">
+          <label for="committee" class="label">Speaker Name(s)</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="committee" class="input-text" type="text" name="">
-          <label for="committee" class="label">committee name</label>
+          <input id="website" class="input-text" type="text" name="website">
+          <label for="website" class="label">Website</label>
         </div>
-        <div class="form-field col-lg-6">
-          <input id="website" class="input-text" type="text" name="">
-          <label for="website" class="label">website</label>
-        </div>
-        <div class="form-field col-lg-6">
-          <input id="domain" class="input-text" type="text" name="">
-          <label for="domain" class="label">domain</label>
-        </div>
-        <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">image</label>
+        <div id="" class="lfield form-field col-lg-12">
+          <input placeholder="Domain" type="text" id="i" class="input-text"></input>
+          <!-- <label for="email" class="label-1" >Domain</label> -->
+          <input type="button" id="ba" class="Add-btn" value="Add"></input>
+          <input type="button" id="br" class="Add-btn" value="Reset"></input>
+          <div id="test" class=""> 
+          </div>
         </div>
         <div class="form-field col-lg-6">
           <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">image</label>
+          <label for="image" class="label">Event Poster</label>
         </div>
         <div class="form-field col-lg-6">
           <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">image</label>
+          <label for="image" class="label">Sponsorship Logo</label>
+        </div>
+
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="application/pdf">
+          <label for="sponsor-logo" class="label">Proposal</label>
+        </div>
+
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         <div class="form-field col-lg-6">
           <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">image</label>
+          <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         <div class="form-field col-lg-6">
           <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">image</label>
+          <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         
-        <div class="form-field col-lg-6">
+        <!-- <div class="form-field col-lg-6">
           <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
           <label for="sponsor-logo" class="label">sponsor logo</label>
         </div>
         <div class="form-field col-lg-6">
           <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
           <label for="sponsor-logo" class="label">sponsor logo</label>
-        </div>
-        <div class="form-field col-lg-6">
-          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="sponsor-logo" class="label">sponsor logo</label>
-        </div>
+        </div> -->
         <div class="form-field col-lg-12">
-          <input class="submit-btn" type="submit" value="submit" name="">
+            <input class="submit-btn" type="submit" value="submit" name="">
         </div>
       </div>
 
     </div>
-
+    </form>
     </section>
 
     <!-- Optional JavaScript -->
@@ -105,4 +109,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
+  <script>
+    $(function(){
+	var n;
+	var list = [];
+
+	// function to click add button when enter is pressed
+	$("#i").keyup(function(event) {
+		if (event.keyCode === 13) {
+			$("#ba").click();
+		}
+	});
+	
+	$("#ba").click(function(evt){
+		evt.preventDefault();
+		
+		// get current value of text input as n
+		n = $("#i").val();
+		
+		// only add if n is not empty
+		if(n.length>0){
+		
+			// reset text input to empty
+			$("#i").val("");
+			
+			// only add if n is not already in the list
+			if($.inArray(n,list)===-1){
+				// add n to list
+				list.push(n);
+				
+				// display n in the test div set its id as n
+				$("#test").append("<div class='clickme' id='"+n+"'>"+n+"<img alt'Smiley face'  src='https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790846-9cancel_84247.png'></div>");
+			}
+		}
+	});
+
+	$("#br").click(function(evt){
+		evt.preventDefault();
+		
+		// display nothing in test div
+		$("#test").empty();
+		
+		// empty the list
+		list = [];
+	});
+	
+	// deletes elements in test div on click
+	$(document).on('click','.clickme',function(evt){
+	
+		// get text of the current clicked div as n
+		n = $(this).text();
+		
+		// find the element with id n and remove it
+		$(this).parent().find("[id="+n+"]").remove();
+		
+		// remove n from the list
+		list = jQuery.grep(list, function(value) { return value != n; });
+	})
+});
+  </script>
 </html>

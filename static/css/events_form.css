@@ -1,3 +1,48 @@
+::placeholder{
+ 
+  left:20px;
+  bottom:30px;
+  font-size:18px;
+  line-height:26px;
+  font-weight:400;
+  color:#5543ca;
+  cursor: text;
+  text-transform: capitalize;
+  transition: transform 0.3s ease-in-out;
+}
+
+.Add-btn{
+  display: inline-block;
+  background-image: linear-gradient(125deg , #a72879,#064497);
+  color:#fff;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-size: 15px;
+  padding: 8px 16px;
+  border:none;
+  width:80px;
+  cursor: pointer;
+}
+.clickme{
+	display: inline-block;
+	padding: 1px;
+	margin: 2px 2px 0px 0px;
+	font-family: Arial;
+	font-weight: 600;
+	padding: 5px 12px 5px 12px;
+	border-radius: 15px;
+	background: linear-gradient(to right, #f4524d 0%, #5543ca 100%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+	
+}
+
+img{
+	width:14px;
+	height:14px;
+}
+
 .get_in_touch{
   max-width: 800px;
   margin: 50px auto;
