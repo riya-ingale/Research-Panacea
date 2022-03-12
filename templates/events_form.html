@@ -1,0 +1,108 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/events_form.css' %}">
+    <title>Event Input</title>
+  </head>
+  <body>
+    <section class="get_in_touch">
+    <h1 class="title">Post Your Event</h1>
+    <div class="container">
+      <div class="contact-form row">
+        <div class="form-field col-lg-6">
+          <input id="name" class="input-text" type="text" name="">
+          <label for="name" class="label">event name</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="date" class="input-text" type="date" name="">
+          <script>
+            var date = new Date();
+            document.getElementById("date-picker").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
+            </script>
+          <label for="date" class="label">Date</label>
+        </div>
+
+        <div class="form-field col-lg-6">
+          <input id="venue" class="input-text" type="text" name="">
+          <label for="venue" class="label">venue</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="phone" class="input-text" type="text" name="">
+          <label for="phone" class="label">contact number</label>
+        </div>
+        <div class="form-field col-lg-12">
+          <input id="about the event" class="input-text" type="text" name="">
+          <label for="about" class="label">about the event</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="email" class="input-text" type="text" name="">
+          <label for="email" class="label">email</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="committee" class="input-text" type="text" name="">
+          <label for="committee" class="label">committee name</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="website" class="input-text" type="text" name="">
+          <label for="website" class="label">website</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="domain" class="input-text" type="text" name="">
+          <label for="domain" class="label">domain</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div>
+        <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="submit" name="">
+        </div>
+      </div>
+
+    </div>
+
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

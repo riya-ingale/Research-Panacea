@@ -105,6 +105,7 @@ class Events(models.Model):
     media_2 = models.ImageField('events/media2',null=True)
     media_3 = models.ImageField('events/media3',null=True)
     media_4 = models.ImageField('events/media4',null=True)
+    pdf = models.FileField('events/pdf',null=True)
     save = models.IntegerField(default=0)
     verify = models.BinaryField(null=True)
     speaker = models.CharField(max_length = 200, null=True)

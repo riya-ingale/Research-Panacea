@@ -79,5 +79,12 @@ def upcoming_event(request):
     return render(request,'404.html')
 
 def registeration(request) :
-
-    return render(request,'404.html')
+    try:
+        if request.method == 'GET':
+            return render(request,'events_form.html')
+        elif request.method == 'POST':
+            return render(request,'events_form.html')
+        else:
+            return render(request,'404.html')
+    except:
+        return render(request,'404.html')
