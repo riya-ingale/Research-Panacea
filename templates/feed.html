@@ -71,11 +71,12 @@
                         <li><a class="dropdown-item" href='/collaboration/viewcollaborations/'>Collaboration Requests</a></li>
                         <li><a class="dropdown-item" href='/collaboration/postcollab/'>Post a Collaboration Request</a></li>
                         <li><hr class="dropdown-divider"/></li>
-                        <li><a class="dropdown-item" to='/'>Something else here</a></li>
+                        <li><a class="dropdown-item" href='/collaboration/chat/'>Chat</a></li>
                     </ul>
                 </li>
             </ul>
             <form class="d-flex" action="/logout/" method="POST">
+                {% csrf_token %}
               <button type="submit" class="btn btn-outline-dark navbar-btn">Log Out</button>
             </form>
             </div>

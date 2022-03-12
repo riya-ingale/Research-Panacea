@@ -1,0 +1,578 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Required meta tags always come first -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/rpdetail.css' %}"
+    />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Research Panacea</title>
+  </head>
+  <body>
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Research Portal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" to="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profile
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Profile</a></li>
+                <li><a class="dropdown-item" to="/chat">Chat</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Events
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Academic Events</a></li>
+                <li>
+                  <a class="dropdown-item" to="/upcomingconf"
+                    >Upcoming Conferences</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Research
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" to="/research">Research Papers</a>
+                </li>
+                <li><a class="dropdown-item" to="/">Collaborate</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button type="button" class="btn btn-outline-dark navbar-btn">
+              Log Out
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content goes here -->
+    <div class="blog-single" style="margin-top: 90px">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col-lg-8 m-15px-tb">
+            <article class="article">
+              <div class="article-img">
+                <img
+                  src="../static/images/research-paper-default.jpeg"
+                  style="max-width: 100% !important"
+                />
+              </div>
+              <div class="article-title">
+                <h2>Research Paper Title</h2>
+                <div class="media d-flex">
+                  <div class="avatar">
+                    <img
+                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                      title=""
+                      alt=""
+                      style="max-width: 100%"
+                    />
+                  </div>
+                  <div class="media-body" style="margin-right: 10px">
+                    <label>Rachel Roth</label>
+                    <span>26 FEB 2020</span>
+                  </div>
+                  <div class="avatar">
+                    <img
+                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                      title=""
+                      alt=""
+                      style="max-width: 100%"
+                    />
+                  </div>
+                  <div class="media-body">
+                    <label>Rachel Roth</label>
+                    <span>26 FEB 2020</span>
+                  </div>
+                </div>
+              </div>
+              <div class="article-content">
+                <p>
+                  Aenean eleifend ante maecenas pulvinar montes lorem et pede
+                  dis dolor pretium donec dictum. Vici consequat justo enim.
+                  Venenatis eget adipiscing luctus lorem. Adipiscing veni amet
+                  luctus enim sem libero tellus viverra venenatis aliquam.
+                  Commodo natoque quam pulvinar elit.
+                </p>
+                <p>
+                  Eget aenean tellus venenatis. Donec odio tempus. Felis arcu
+                  pretium metus nullam quam aenean sociis quis sem neque vici
+                  libero. Venenatis nullam fringilla pretium magnis aliquam nunc
+                  vulputate integer augue ultricies cras. Eget viverra feugiat
+                  cras ut. Sit natoque montes tempus ligula eget vitae pede
+                  rhoncus maecenas consectetuer commodo condimentum aenean.
+                </p>
+                <h4>What are my payment options?</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <blockquote>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam.
+                  </p>
+                  <p class="blockquote-footer">
+                    Someone famous in
+                    <cite title="Source Title">Dick Grayson</cite>
+                  </p>
+                </blockquote>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </p>
+              </div>
+              <div class="nav tag-cloud">
+                <a href="#">Design</a>
+                <a href="#">Development</a>
+                <a href="#">Travel</a>
+                <a href="#">Web Design</a>
+                <a href="#">Marketing</a>
+                <a href="#">Research</a>
+                <a href="#">Managment</a>
+              </div>
+            </article>
+            <div class="contact-form article-comment">
+              <h4>Discussion Forums</h4>
+              <form id="contact-form" method="POST">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Your message *"
+                        rows="4"
+                        class="form-control"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="send">
+                      <button class="btn btn-light">
+                        <span>Submit</span> <i class="arrow"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="container mt-5">
+                <div class="d-flex justify-content-center row">
+                  <div class="col-md-8">
+                    <div
+                      class="d-flex flex-column comment-section"
+                      id="myGroup"
+                    >
+                      <div class="bg-white p-2">
+                        <div class="d-flex flex-row user-info">
+                          <img
+                            class="rounded-circle"
+                            src="https://i.imgur.com/RpzrMR2.jpg"
+                            width="40"
+                          />
+                          <div
+                            class="d-flex flex-column justify-content-start ml-2"
+                          >
+                            <span class="d-block font-weight-bold name"
+                              >Marry Andrews</span
+                            ><span class="date text-black-50"
+                              >Shared publicly - Jan 2020</span
+                            >
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <p class="comment-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="bg-white p-2">
+                        <div class="d-flex flex-row fs-12">
+                          <div
+                            class="like p-2 cursor action-collapse"
+                            data-toggle="collapse"
+                            aria-expanded="true"
+                            aria-controls="collapse-1"
+                            href="#collapse-1"
+                          >
+                            <button
+                              class="btn btn-light"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseExample"
+                              aria-expanded="false"
+                              aria-controls="collapseExample"
+                            >
+                              <i class="fa fa-commenting-o"></i>
+                              <span class="ml-1">Discussions</span>
+                            </button>
+                          </div>
+                          <div
+                            class="like p-2 cursor action-collapse"
+                            data-toggle="collapse"
+                            aria-expanded="true"
+                            aria-controls="collapse-1"
+                            href="#collapse-1"
+                          >
+                            <button
+                              class="btn btn-light"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseExample2"
+                              aria-expanded="false"
+                              aria-controls="collapseExample"
+                            >
+                              <i class="fa fa-share"></i>
+                              <span class="ml-1">Replies</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                          <div class="d-flex flex-row align-items-start">
+                            <img
+                              class="rounded-circle"
+                              src="https://i.imgur.com/RpzrMR2.jpg"
+                              width="40"
+                            /><textarea
+                              class="form-control ml-1 shadow-none textarea"
+                            ></textarea>
+                          </div>
+                          <div class="mt-2 text-right">
+                            <button
+                              class="btn btn-primary btn-sm shadow-none"
+                              type="button"
+                            >
+                              Post comment
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                          <div class="bg-white p-2">
+                            <div class="d-flex flex-row user-info">
+                              <img
+                                class="rounded-circle"
+                                src="https://i.imgur.com/RpzrMR2.jpg"
+                                width="40"
+                              />
+                              <div
+                                class="d-flex flex-column justify-content-start ml-2"
+                              >
+                                <span class="d-block font-weight-bold name"
+                                  >Marry Andrews</span
+                                ><span class="date text-black-50"
+                                  >Shared publicly - Jan 2020</span
+                                >
+                              </div>
+                            </div>
+                            <div class="mt-2">
+                              <p class="comment-text">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 m-15px-tb blog-aside">
+            <!-- Author -->
+            <!-- <div class="widget widget-author">
+                            <div class="widget-title">
+                                <h3>Author</h3>
+                            </div>
+                            <div class="widget-body">
+                                <div class="media align-items-center">
+                                    <div class="avatar">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6>Hello, I'm<br> Rachel Roth</h6>
+                                    </div>
+                                </div>
+                                <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
+                            </div>
+                        </div> -->
+            <!-- End Author -->
+            <!-- Trending Post -->
+            <!-- <div class="widget widget-post">
+                            <div class="widget-title">
+                                <h3>Trending Now</h3>
+                            </div>
+                            <div class="widget-body">
+    
+                            </div>
+                        </div> -->
+            <!-- End Trending Post -->
+            <!-- Latest Post -->
+            <div class="widget widget-latest-post">
+              <div class="widget-title">
+                <h3>Similar Post</h3>
+              </div>
+              <div class="widget-body">
+                <div class="latest-post-aside media">
+                  <div class="lpa-left media-body">
+                    <div class="lpa-title">
+                      <h5>
+                        <a href="#"
+                          >Prevent 75% of visitors from google analytics</a
+                        >
+                      </h5>
+                    </div>
+                    <div class="lpa-meta">
+                      <a class="name" href="#"> Rachel Roth </a>
+                      <a class="date" href="#"> 26 FEB 2020 </a>
+                    </div>
+                  </div>
+                  <div class="lpa-right">
+                    <a href="#">
+                      <img
+                        src="https://via.placeholder.com/400x200/FFB6C1/000000"
+                        title=""
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="latest-post-aside media">
+                  <div class="lpa-left media-body">
+                    <div class="lpa-title">
+                      <h5>
+                        <a href="#"
+                          >Prevent 75% of visitors from google analytics</a
+                        >
+                      </h5>
+                    </div>
+                    <div class="lpa-meta">
+                      <a class="name" href="#"> Rachel Roth </a>
+                      <a class="date" href="#"> 26 FEB 2020 </a>
+                    </div>
+                  </div>
+                  <div class="lpa-right">
+                    <a href="#">
+                      <img
+                        src="https://via.placeholder.com/400x200/FFB6C1/000000"
+                        title=""
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="latest-post-aside media">
+                  <div class="lpa-left media-body">
+                    <div class="lpa-title">
+                      <h5>
+                        <a href="#"
+                          >Prevent 75% of visitors from google analytics</a
+                        >
+                      </h5>
+                    </div>
+                    <div class="lpa-meta">
+                      <a class="name" href="#"> Rachel Roth </a>
+                      <a class="date" href="#"> 26 FEB 2020 </a>
+                    </div>
+                  </div>
+                  <div class="lpa-right">
+                    <a href="#">
+                      <img
+                        src="https://via.placeholder.com/400x200/FFB6C1/000000"
+                        title=""
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Latest Post -->
+            <!-- widget Tags -->
+            <div class="widget widget-tags">
+              <div class="widget-title">
+                <h3>Similar Tags</h3>
+              </div>
+              <div class="widget-body">
+                <div class="nav tag-cloud">
+                  <a href="#">Design</a>
+                  <a href="#">Development</a>
+                  <a href="#">Travel</a>
+                  <a href="#">Web Design</a>
+                  <a href="#">Marketing</a>
+                  <a href="#">Research</a>
+                  <a href="#">Managment</a>
+                </div>
+              </div>
+            </div>
+            <!-- End widget Tags -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-07">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center">
+            <h2 class="footer-heading">
+              <a href="#" class="logo">Research Panachea</a>
+            </h2>
+            <p class="menu">
+              <a href="#">Home</a>
+              <a href="#">Research Paper</a>
+              <a href="#">Collaborators</a>
+              <a href="#">Profile</a>
+            </p>
+            <ul class="ftco-footer-social p-0">
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Twitter"
+                  ><span class="fab fa-twitter"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Facebook"
+                  ><span class="ion-logo-facebook"
+                    ><i class="fab fa-facebook"></i></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Instagram"
+                  ><span class="fab fa-instagram"></span
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12 text-center">
+            <p class="copyright">Copyright &copy; Research Panachea</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() < 100) {
+          $(".navbar").css({ "background-color": "transparent" });
+        } else {
+          $(".navbar").css({ "background-color": "white" });
+        }
+      });
+    });
+  </script>
+</html>

@@ -195,15 +195,20 @@
             <div class="d-flex flex-row mb-3">
               <img src="{% static 'img/research-paper.jpeg' %}" width="70" />
               <div class="d-flex flex-column ml-2">
-                <span>{{r.journal_name}}</span
-                ><span class="text-black-50">Domain: {{r.domain}}</span>
+                {% if r.journal_name %}
+                <span>{{r.journal_name}}</span>
+                {% else %}
+                <span>{{r.conference_name}}</span>
+                {% endif %}
+                <span class="text-black-50">Domain: {{r.domain}}</span>
               </div>
             </div>
             <h6>{{r.title}}</h6>
             <div class="d-flex justify-content-between install mt-3">
               <span>Saved 172 times</span
               ><span class="text-primary"
-                >View&nbsp;<i class="fa fa-angle-right"></i
+                ><a href="/viewresearchpaper/{{r.id}}">View&nbsp;</a
+                ><i class="fa fa-angle-right"></i
               ></span>
             </div>
           </div>
@@ -238,10 +243,13 @@
             ><a class="team-contact-link" href="#">Projects: 30</a>
             <br />
             <form method="GET" action="/otherprofile/{{u.id}}">
-            <button class="btn" style="background-color: #ab72f3; color: white">
-              View Profile
-            </button>
-          </form>
+              <button
+                class="btn"
+                style="background-color: #ab72f3; color: white"
+              >
+                View Profile
+              </button>
+            </form>
           </div>
         </div>
         {% endfor %}

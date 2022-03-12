@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index-body.css' %}">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Research Panacea</title>
+</head>
+<body>
+    <div class='container full-body-container'>
+		<div class="box-1">
+		  <div class="row">
+			  <div class="col-md-5">
+				<p class="ad-line">
+        <a class="portal-name" href="#">Research Panachea</a><br></br>
+					Ideas Evolve 
+					When You Are Involved<br></br>
+			<form method="GET" action="/login/">	
+          	<button type="submit" class="btn btn-outline-dark navbar-btn">Get Started</button>
+			</form>	
+			</p>
+			  </div>
+			  <div class="col-md-7 constrained-height">
+				<img
+					class='svg-img img-fluid'
+					src="{% static 'img/collab.svg' %}"
+					alt='collab'
+				/>
+			  </div>
+		  </div>
+		</div>
+		<div class="third-box">
+			<div class="row">
+				<a class="portal-name-feature" href="#">Features</a><br></br>
+					<div class="col-md-4">					
+						<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-orange">
+								
+							</header>
+							<h2 class="direct-custom-text">Collaborate</h2>
+								<p class="card-text black-para">
+									Collaborate with your peers for research papers in the domain of your choice
+								</p>                                            
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+					<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-pink">							
+							</header>
+							<h2 class="direct-custom-text">Upcoming Conferences</h2>
+								<p class="card-text black-para">
+									Never miss the next big Conference.Stay Updated always!
+								</p> 
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+					<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-purple">							
+							</header>
+							<h2 class="direct-custom-text">Network = Networth</h2>
+								<p class="card-text black-para">
+									Grow your network and meet some like minded people all over the globe!
+								</p> 
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="row">
+					<div class="col-md-4">					
+						<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-orange">
+								
+							</header>
+							<h2 class="direct-custom-text">Reasearch Papers</h2>
+								<p class="card-text black-para">
+									You can browse through various research papers and gain knowledge
+								</p>                                            
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+					<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-pink">							
+							</header>
+							<h2 class="direct-custom-text">Academic Activities</h2>
+								<p class="card-text black-para">
+									Stay updated with academic activities all over the country
+								</p> 
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+					<div class="card  feature-card">
+							<div class="card-body">
+							<header class="header-purple">							
+							</header>
+							<h2 class="direct-custom-text">Connect</h2>
+								<p class="card-text black-para">
+									You can have real time chats with like minded peeps
+								</p> 
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	  </div>   
+</body>
+<script>
+
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(window).scrollTop() < 100){
+                $(".navbar").css({"background-color":"transparent"});   
+            }
+            else{
+                $(".navbar").css({"background-color":"white"});
+            }
+    
+        })
+    })
+    </script>
+</html>

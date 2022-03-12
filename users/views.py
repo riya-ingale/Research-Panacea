@@ -10,8 +10,7 @@ from collaboration.models import *
 # Create your views here.
 
 def home(request):
-    return HttpResponse('HOME PAGE')
-    return render(request,'home.html')
+    return render(request,'homepage.html')
 
 def login(request):
     if request.method == "GET":
@@ -130,6 +129,7 @@ def viewresearchpaper(request, rid):
         context = {
             'paper':paper
         }
+        
         return HttpResponse(paper.title)
         # return render(request, 'viewresearchpaper.html',context)
 
