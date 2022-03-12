@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/postcollab.css' %}" />
+    <title>Event Input</title>
+  </head>
+  <body>
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Research Portal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" to="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profile
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Profile</a></li>
+                <li>
+                  <a class="dropdown-item" to="/recommendation/"
+                    >Recommend Me</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Events
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Academic Events</a></li>
+                <li>
+                  <a class="dropdown-item" to="/upcomingconf"
+                    >Upcoming Conferences</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Research
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="/researchpapers/"
+                    >Research Papers</a
+                  >
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Collaboration
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="/collaboration/viewcollaborations/"
+                    >Collaboration Requests</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/collaboration/postcollab/"
+                    >Post a Collaboration Request</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" action="/logout" method="POST">
+            <button type="submit" class="btn btn-outline-dark navbar-btn">
+              Log Out
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <section class="get_in_touch">
+      <h1 class="title">Add Project For Collaboration</h1>
+      <div class="container">
+        <form method="POST" action="/collaboration/postcollab/">
+          {% csrf_token %}
+          <div class="contact-form row">
+            <div class="form-field col-lg-6">
+              <input id=" title" class="input-text" type="text" name="title" />
+              <label for=" title" class="label">Title</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id=" domain"
+                class="input-text"
+                type="text"
+                name="domain"
+              />
+              <label for=" domain" class="label">Domain of the Project</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id=" duration"
+                class="input-text"
+                type="text"
+                name="duration"
+              />
+              <label for=" duration" class="label"
+                >Duration of the Project</label
+              >
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id="organisation"
+                class="input-text"
+                type="text"
+                name="organisation"
+              />
+              <label for="organisation" class="label">Organisation</label>
+            </div>
+            <div class="form-field col-lg-12">
+              <input
+                id=" Skills"
+                class="input-text"
+                type="text"
+                name="skills"
+              />
+              <label for=" Skills" class="label">Required Skills</label>
+            </div>
+            
+            <div class="form-field col-lg-6">
+              <input id="deadline" class="input-text" type="date" name="deadline">
+              <script>
+                var date = new Date();
+                document.getElementById("deadline").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
+                </script>
+              <label for="deadline" class="label">Deadline</label>
+            </div>
+
+            <div class="form-field col-lg-6">
+              <input
+                id="venue"
+                class="input-text"
+                type=""
+                name="pref_workplace"
+              />
+              <label for="venue" class="label"> Preffered work place</label>
+              <select name="dropdown" name="pref_workplace">
+                <option value="remote origin" name="pref_workplace" selected>
+                  Remote Origin
+                </option>
+                <option value="offline" name="pref_workplace">Offline</option>
+              </select>
+            </div>
+
+            <!-- <div class="form-field col-lg-6">
+          <input id="phone" class="input-text" type="text" name="">
+          <label for="phone" class="label">contact number</label>
+        </div> -->
+
+            <div class="form-field col-lg-12">
+              <input
+                id="about-the-colaboration"
+                class="input-text"
+                type="text"
+                name="description"
+              />
+              <label for="about" class="label">About the collaboration</label>
+            </div>
+
+            <div class="form-field col-lg-6">
+              <input
+                id="country"
+                class="input-text"
+                type="text"
+                name="country"
+              />
+              <label for="country" class="label">Country</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="state" class="input-text" type="text" name="state" />
+              <label for="state" class="label">State</label>
+            </div>
+            <!-- <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="image" class="label">image</label>
+        </div>
+        
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <label for="sponsor-logo" class="label">sponsor logo</label>
+        </div> -->
+            <div class="form-field col-lg-12">
+              <input class="submit-btn" type="submit" value="submit" name="" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
