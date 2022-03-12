@@ -15,8 +15,7 @@ with open('skills.json') as file:
     keys = data.keys()
 
 def home(request):
-    return HttpResponse('HOME PAGE')
-    return render(request,'home.html')
+    return render(request,'homepage.html')
 
 def login(request):
     if request.method == "GET":
@@ -165,6 +164,7 @@ def viewresearchpaper(request, rid):
             'sim_papers':similar_papers
 
         }
+        
         return HttpResponse(paper.title)
         # return render(request, 'viewresearchpaper.html',context)
 

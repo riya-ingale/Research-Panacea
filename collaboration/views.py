@@ -101,7 +101,8 @@ def postproposal(request,collab_id):
             db.save()
             return HttpResponse(f'PROPOSAL for collab id - {db.collabrequest} is Sent')        
 
-
+def chat(request):
+    return render(request, 'chat.html')
 
 # def searchcollabs(request):
     

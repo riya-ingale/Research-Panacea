@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/academicevents.css">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Research Panacea</title>
+</head>
+<body>
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Research Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" to='/'>Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" to='/'>Profile</a></li>
+                    <li><a class="dropdown-item" to='/chat'>Chat</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Events
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" to='/'>Academic Events</a></li>
+                     <li><a class="dropdown-item" to='/upcomingconf'>Upcoming Conferences</a></li>
+                     <li><hr class="dropdown-divider"/></li>
+                     <li><a class="dropdown-item" to='/'>Something else here</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Research
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" to='/research'>Research Papers</a></li>
+                    <li><a class="dropdown-item" to='/'>Collaborate</a></li>
+                    <li><hr class="dropdown-divider"/></li>
+                    <li><a class="dropdown-item" to='/'>Something else here</a></li>
+                </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+              <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
+            </form>
+            </div>
+        </div>
+        </nav>
+        <div class="container conf-container">
+            <form id="search-form">
+                <div class="row search-container  ">
+                    <div class="col-12">
+                        <div class="row no-gutters">
+                            <div class="col-3 p-0 d-flex justify-content-center">                              
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle domain-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Sort By
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                      <li><a class="dropdown-item" href="#">Time</a></li>
+                                      <li><a class="dropdown-item" href="#">Date</a></li>
+                                      <li><a class="dropdown-item" href="#">Venue</a></li>
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="col-8  p-0">
+                                <div class="search__container">
+                                    <input class="search__input" type="text" placeholder="Search">
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card card-margin">
+                        <img src="../static/images/philosophy.jpeg" class="card-img-top" alt="...">
+                        <div class="middle">
+                            <div class="text">Saves: 9</div>
+                        </div>
+                        <div class="card-header no-border">
+                            <h5 class="card-title">Event Name</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">09</span>
+                                        <span class="widget-49-date-month">apr</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">Venue: Mumbai</span>
+                                        <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                                    </div>
+                                </div>
+                                <!-- <ul class="widget-49-meeting-points">
+                                    <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                                    <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                                    <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                                </ul> -->
+                                <div class="widget-49-meeting-action">
+                                    <a href="#" class="btn btn-sm btn-flash-border-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-margin">
+                        <img src="../static/images/maths.jpeg" class="card-img-top" alt="...">
+                        <div class="card-header no-border">
+                            <h5 class="card-title">Event Name</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">09</span>
+                                        <span class="widget-49-date-month">apr</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">Venue: Mumbai</span>
+                                        <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="widget-49-meeting-action">
+                                    <a href="#" class="btn btn-sm btn-flash-border-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-margin">
+                        <img src="../static/images/philosophy.jpeg" class="card-img-top" alt="...">
+                        <div class="card-header no-border">
+                            <h5 class="card-title">Event Name</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">09</span>
+                                        <span class="widget-49-date-month">apr</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">Venue: Mumbai</span>
+                                        <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="widget-49-meeting-action">
+                                    <a href="#" class="btn btn-sm btn-flash-border-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            </div>
+<footer class="footer-07">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h2 class="footer-heading"><a href="#" class="logo">Research Panachea</a></h2>
+                <p class="menu">
+                  <a href="#">Home</a>
+                  <a href="#">Research Paper</a>
+                  <a href="#">Collaborators</a>
+                  <a href="#">Profile</a>
+                </p>
+                <ul class="ftco-footer-social p-0">
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fab fa-twitter"></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"><i class="fab fa-facebook"></i></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fab fa-instagram"></span></a></li>
+    </ul>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <p class="copyright">
+                  Copyright &copy; Research Panachea
+              </p>
+            </div>
+        </div>
+    </div>
+</footer>   
+</body>
+<script>
+
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(window).scrollTop() < 100){
+                $(".navbar").css({"background-color":"transparent"});   
+            }
+            else{
+                $(".navbar").css({"background-color":"white"});
+            }
+    
+        })
+    })
+    </script>
+</html>
