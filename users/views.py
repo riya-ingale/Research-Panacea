@@ -6,8 +6,13 @@ import os
 import cv2
 from io import BytesIO
 from collaboration.models import *
+import json
+import numpy as np
 
 # Create your views here.
+with open('skills.json') as file:
+    data = json.load(file)
+    keys = data.keys()
 
 def home(request):
     return HttpResponse('HOME PAGE')
@@ -124,11 +129,41 @@ def researchpapers(request):
         return redirect('/login/')
 
 #View a Expanded Research Paper Page
+def research_mat(data):
+    papers = ResearchPapers.objects.all()
+    mat = np.zeros((papers[len(papers)-1].id+1 , 26))
+    for paper in papers:
+        li = paper.domain.split(';')
+        li.extend(paper.keywords.split(';'))
+        for ele in li:
+            if ele in keys:
+                try:
+                    mat[paper.id][data[ele]] +=1
+                except:
+                    mat[paper.id][data[ele]] = 1
+    return mat
+
+
 def viewresearchpaper(request, rid):
     if request.method == "GET":
         paper = ResearchPapers.objects.filter(id = rid)[0]
+        mat = research_mat(data)
+        sim = np.dot(mat , mat.T)
+        output = sim[paper.id]
+        print(sim.shape)
+        print(len(output))
+        print(output)
+        print(type(rid))
+        sim_papers = [idx for idx in range(len(output)) if output[idx]>=1 and idx!=int(rid)]
+        print(sim_papers)
+        similar_papers = []
+        for p in sim_papers:
+            similar_papers.append(ResearchPapers.objects.filter(id = p)[0])
+
         context = {
-            'paper':paper
+            'paper':paper,
+            'sim_papers':similar_papers
+
         }
         return HttpResponse(paper.title)
         # return render(request, 'viewresearchpaper.html',context)
