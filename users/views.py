@@ -23,7 +23,8 @@ def login(request):
             t = Users.objects.get(username = username)
             print(t)
             if check_password(password, t.password):
-                del request.session['username']
+                if 'username' in request.session:
+                    del request.session['username']
                 request.session['username'] = username
                 print(request.session['username'])
                 return redirect('/feed/')

@@ -20,9 +20,10 @@ def upcoming_conf(request):
             d = str(day) + " " + str(month) + " " + str(year)
             date =  datetime.strptime(d, '%d %b %Y')
             filt = Conference.objects.distinct().filter(timedate__gte = date)
-            conf_names = []
-            for conf in filt:
-                conf_names.append(conf.name)
+            print(len(filt))
+            # conf_names = []
+            # for conf in filt:
+            #     conf_names.append(conf.name)
             context = {
                 'allconf':filt
             }    
