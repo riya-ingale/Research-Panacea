@@ -76,7 +76,7 @@
     <div class="col-lg-12">
         <div class="wrapper wrapper-content animated fadeInRight">
 
-            <div class="ibox-content forum-container">
+            <div class="ibox-content forum-container" id="card_automate">
 
                 <div class="forum-title">
                     <div class="pull-right forum-desc">
@@ -128,12 +128,12 @@
                 </div> -->
                 <div class="row" style="margin-top: 10px;">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Search" id="my_input" onkeyup="myFunction()" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text" id="basic-addon2">Search</span>
                       </div>
                 </div>
                 {% for journal in journal_data %}
-                <div class="forum-item">
+                <div class="forum-item" id="label_forum">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="forum-icon" style="margin-right: 50px;">
@@ -144,9 +144,9 @@
                                     <strong>Rank:1</strong>
                                 </div> -->
                             </div>
-                            <a href="{{ journal.journal_link }}" class="forum-item-title">{{ journal.journal_name }}</a>
+                            <h4><a href="{{ journal.journal_link }}" class="forum-item-title">{{ journal.journal_name }}</a></h4>
                             <div class="forum-sub-title" style="padding-left: 25px;">{{ journal.issn }}, {{ journal.period }} </div>
-                            <div class="forum-sub-title" style="padding-left: 25px;">Rank {{ journal.ranking }} in {{ journal.domain }} </div>
+                            <div class="forum-sub-title" style="padding-left: 25px;"><h6>Rank {{ journal.ranking }} in {{ journal.domain }} </h6></div>
                         </div>
                         <div class="col-md-2 forum-info">
                             <span class="views-number">
@@ -440,5 +440,42 @@
     
         })
     })
+
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('my_input');
+        // console.log(input)
+        filter = input.value.toUpperCase();
+        div = document.getElementById("card_automate");
+        // console.log(div)
+        li = div.getElementsByTagName("h4");
+        sub_li = div.getElementsByTagName("h6");
+        card_div = document.getElementsByClassName("forum-item");
+        // console.log(li);
+        // console.log(card_div);
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) 
+        {
+            txtValue = li[i].innerText;
+            sub_txt = sub_li[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1 || sub_txt.toUpperCase().indexOf(filter)>-1) 
+            {
+                // document.querySelectorAll(".login").forEach(a=>a.style.display = "none");
+                // document.querySelectorAll(".card_div").style.display = 'block';
+                card_div[i].style.display = "";
+                // console.log(txtValue);
+            } 
+            else 
+            {
+                card_div[i].style.display = "none";
+                // console.log(card_div[i]);
+                // document.querySelectorAll(".card_div").style.display = 'none';
+            }
+        }
+        
+        // console.log(li.length);
+        // console.log(li);
+    }
+
     </script>
 </html>
