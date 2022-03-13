@@ -37,7 +37,7 @@
     ></script>
     <title>Research Panacea</title>
   </head>
-  <body>
+  <body style="background-image: url('../static/img/light-bg.png')">
     <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Research Portal</a>
@@ -177,9 +177,15 @@
         {% endfor %}
       </div>
     </div>
-    <form method="GET" action="/collaboration/viewcollaborations/">
-      <div id="show-more">SHOW MORE</div>
-    </form>
+
+    <div id="show-more">
+      <a
+        href="/collaboration/viewcollaborations/"
+        style="color: white; text-decoration: none"
+        >SHOW MORE</a
+      >
+    </div>
+
     <hr />
     <p>
       <br />
@@ -216,7 +222,11 @@
         {% endfor %}
       </div>
     </div>
-    <div id="show-more">SHOW MORE</div>
+    <div id="show-more">
+      <a href="/researchpapers/" style="color: white; text-decoration: none"
+        >SHOW MORE</a
+      >
+    </div>
     <hr />
 
     <section class="container py-5">

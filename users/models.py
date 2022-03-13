@@ -48,6 +48,7 @@ class ResearchPapers(models.Model):
     keywords = models.TextField(null=True)
     doi = models.CharField(max_length=300,null=True)
     media = models.FileField(upload_to = 'users_media/research_papers',null=True)
+    url = models.TextField(null=True)
     published_date = models.DateTimeField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

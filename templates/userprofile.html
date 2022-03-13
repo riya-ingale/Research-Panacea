@@ -1,4 +1,5 @@
 {% load static %}
+{% load index %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +16,7 @@
     <title>Profile Page</title>
     <script src="https://kit.fontawesome.com/bd4af1c75a.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body style="background-image: url('../static/img/light-bg.png')">
     
     <section style="background-color: #eee;">
         <div class="container py-5">
@@ -229,6 +230,7 @@
                       <div class="col " style="width:614px;">
                         <h4>Certifications
                         </h4>
+                        {% if certifications %}
                         {% for c in certifications %}
                         <div class="card mb-5" style="border-radius: 15px; padding:0px">
                           <div class="card-body p-4">
@@ -248,19 +250,27 @@
                           </div>
                         </div>
                         {% endfor %}
+                        {% else %}
+                        <h6 class="text-muted">No Certifications to Show</h6>
+                        {% endif %}
                       </div>
                     </div>
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col " style="width:614px;">
                           <h4>Research Papers
                           </h4>
+                          {% if papers %}
                           {% for p in papers %}
                           <div class="card mb-5" style="border-radius: 15px; padding:0px">
                             
                             <div class="card-body p-4">
                               <h5 class="mb-3">{{p.title}}</h5>
                               <p>{{p.abstract}}</p>
-                              <p class="small mb-0"><i class="fas fa-star fa-lg text-warning"></i> <span class="mx-2">|</span> Public <span class="mx-2">|</span> Published along with <strong>Collaborater name</strong> on 11 April , 2021</p>
+                              <p class="small mb-0"><i class="fas fa-star fa-lg text-warning"></i> <span class="mx-2">|</span> Public <span class="mx-2">|</span> Published along with
+                                {% for pc in p_collabs|index:forloop.counter0 %} 
+                                <strong>{{pc}},</strong>
+                                {% endfor %} 
+                                on 11 April , 2021</p>
                               <hr class="my-4">
                               <div class="d-flex justify-content-start align-items-center">
                                 
@@ -287,6 +297,9 @@
                             </div>
                           </div>
                           {% endfor %}
+                          {% else %}
+                          <h6 class="text-muted">No Research Papers to show</h6>
+                          {% endif %}
                         </div>
                       </div>
                     

@@ -11,9 +11,9 @@ urlpatterns = [
     path('otherprofile/<uid>',views.otherprofile, name = 'otherprofile'),
     path('researchpapers/',views.researchpapers, name = "researchpapers"),
     path('addworkexp/', views.addworkexp,name = 'addworkexp'),
-    path('addeducation',views.addeducation, name = "addeducation"),
-    path('addcertifications', views.addcertifications, name= 'addcertifications'),
-    path('addresearchpaper',views.addresearchpaper, name = 'addresearchpaper'),
+    path('addeducation/',views.addeducation, name = "addeducation"),
+    path('addcertifications/', views.addcertifications, name= 'addcertifications'),
+    path('addresearchpaper/',views.addresearchpaper, name = 'addresearchpaper'),
     path('viewresearchpaper/<rid>',views.viewresearchpaper, name = "viewresearchpaper"),
     path('saverspaper<rid>',views.saverspaper, name = "saverspaper")
 ]

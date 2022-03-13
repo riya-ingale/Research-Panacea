@@ -27,9 +27,15 @@
         <a class="portal-name" href="#">Research Panachea</a><br></br>
 					Ideas Evolve 
 					When You Are Involved<br></br>
+			{% if not username %}		
 			<form method="GET" action="/login/">	
           	<button type="submit" class="btn btn-outline-dark navbar-btn">Get Started</button>
 			</form>	
+			{% else %}
+			<form method="GET" action="/feed/">	
+				<button type="submit" class="btn btn-outline-dark navbar-btn">Get Started</button>
+			</form>	
+			{% endif %}
 			</p>
 			  </div>
 			  <div class="col-md-7 constrained-height">

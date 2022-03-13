@@ -1,294 +1,407 @@
-{% load static %}
-{% load index %}
+{% load static %} {% load index %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!--Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/researchpaper.css' %}">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/researchpaper.css' %}"
+    />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <title>Research Panacea</title>
-</head>
-<body>
-    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Research Portal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  </head>
+  <body style="background-image: url('../static/img/light-bg.png')">
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Research Portal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" to="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profile
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Profile</a></li>
+                <li><a class="dropdown-item" to="/chat">Chat</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Events
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Academic Events</a></li>
+                <li>
+                  <a class="dropdown-item" to="/upcomingconf"
+                    >Upcoming Conferences</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Research
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" to="/researchpapers/"
+                    >Research Papers</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    to="/collaboratin/viewcollaborations/"
+                    >Collaborate</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button type="button" class="btn btn-outline-dark navbar-btn">
+              Log Out
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" to='/'>Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Profile
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" to='/'>Profile</a></li>
-                    <li><a class="dropdown-item" to='/chat'>Chat</a></li>
-                </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Events
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" to='/'>Academic Events</a></li>
-                     <li><a class="dropdown-item" to='/upcomingconf'>Upcoming Conferences</a></li>
-                     <li><hr class="dropdown-divider"/></li>
-                     <li><a class="dropdown-item" to='/'>Something else here</a></li>
-                </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Research
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" to='/researchpapers/'>Research Papers</a></li>
-                    <li><a class="dropdown-item" to='/collaboratin/viewcollaborations/'>Collaborate</a></li>
-                    <li><hr class="dropdown-divider"/></li>
-                    <li><a class="dropdown-item" to='/'>Something else here</a></li>
-                </ul>
-                </li>
-
-            </ul>
-            <form class="d-flex">
-              <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
-            </form>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="Container rp-container">
+      <form id="search-form">
+        <div class="row row-w">
+          <div class="col-12">
+            <div class="row no-gutters">
+              <div
+                class="col-lg-3 col-md-3 col-sm-12 p-0 d-flex justify-content-center"
+              >
+                <div class="dropdown">
+                  <button
+                    class="btn dropdown-toggle domain-btn"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Domain
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li>
+                      <a class="dropdown-item" href="#">Machine Learning</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Data Science</a></li>
+                    <li><a class="dropdown-item" href="#">Biology</a></li>
+                    <li><a class="dropdown-item" href="#">Mathematics</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+                <div class="search__container">
+                  <input
+                    class="search__input"
+                    type="text"
+                    placeholder="Search"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-3 col-sm-12 p-0"></div>
             </div>
+          </div>
         </div>
-        </nav>
-    <div class='Container rp-container'>
-        <form id="search-form">
-                    <div class="row row-w">
-                        <div class="col-12">
-                            <div class="row no-gutters">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0 d-flex justify-content-center">
-                                  
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle domain-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                          Domain
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                          <li><a class="dropdown-item" href="#">Machine Learning</a></li>
-                                          <li><a class="dropdown-item" href="#">Data Science</a></li>
-                                          <li><a class="dropdown-item" href="#">Biology</a></li>
-                                          <li><a class="dropdown-item" href="#">Mathematics</a></li>
-                                        </ul>
-                                      </div>
-                                </div>
-                                <div class="col-lg-8 col-md-6 col-sm-12 p-0">
-                                    <div class="search__container">
-                                        <input class="search__input" type="text" placeholder="Search">
-                                    </div>
-                                </div>
-                                <div class="col-lg-1 col-md-3 col-sm-12 p-0">
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+      </form>
       <div class="tabset">
-   
-        <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked/>
+        <input
+          type="radio"
+          name="tabset"
+          id="tab1"
+          aria-controls="marzen"
+          checked
+        />
         <label for="tab1">All</label>
-      
-        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier"/>
+
+        <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" />
         <label for="tab2">Saved</label>
-        
-        
-      <div class="tab-panels">
-      <section id="marzen" class="tab-panel">
-      {% for r in allpapers %}      
-      <div class="blog-card alt">
-          <div class="meta">
-            <div class="photo" ></div>
-            <ul class="details">
-              <li class="author">
-                <a href="#">{{ r_usernames|index:forloop.counter0 }}</a></li>
-              <li class="date">July. 15, 2015</li>
-              <li class="tags">
-                <ul>
-                  <li><a href="#">{{r.domain}}</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="description">
-            <h1{{r.title}}
-      </h1>
-            <h2>Publication Name: {{ r.journal_name }}
 
-      </h2>
-            <p>{{r.abstract}}
-      </p>
-            <p class="read-more">
-              <a href="/viewresearchpaper/{{r.id}}">Read More</a>
-            </p>
-          </div>
-        </div>
-       {% endfor %} 
+        <div class="tab-panels">
+          <section id="marzen" class="tab-panel">
+            {% for r in allpapers %}
+            <div class="blog-card alt">
+              <div class="meta">
+                <div
+                  class="photo"
+                  style="background-image: url('../static/img/analysis.jpeg')"
+                ></div>
+                <ul class="details">
+                  <li class="author">
+                    <a href="#">{{ r_usernames|index:forloop.counter0 }}</a>
+                  </li>
+                  <li class="date">July. 15, 2015</li>
+                  <li class="tags">
+                    <ul>
+                      <li><a href="#">{{r.domain}}</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="description">
+                <h1>{{r.title}}</h1>
+                {% if r.journal_name %}
+                <h2>Publication Name: {{ r.journal_name }}</h2>
+                {% elif r.conference_name %}
+                <h2>Publication Name: {{ r.conference_name }}</h2>
+                {% endif %}
 
-        </section>
-        <section id="rauchbier" class="tab-panel">
-         {% for r in saved_papers %} 
-        <div class="blog-card">
-          <div class="meta">
-            <div class="photo"   ></div>
-            <ul class="details">
-              <li class="author"><a href="#"> Collaborator: Name</a></li>
-              <li class="date">Mar. 10, 2019</li>
-              <li class="tags">
-                <ul>
-                  <li><a href="#">{{r.domain}}</a></li>
+                <p>{{r.abstract}}</p>
+                <p class="read-more">
+                  <a href="/viewresearchpaper/{{r.id}}">Read More</a>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </section>
+          <section id="rauchbier" class="tab-panel">
+            {% for r in saved_papers %}
+            <div class="blog-card">
+              <div class="meta">
+                <div class="photo"></div>
+                <ul class="details">
+                  <li class="author"><a href="#"> Collaborator: Name</a></li>
+                  <li class="date">Mar. 10, 2019</li>
+                  <li class="tags">
+                    <ul>
+                      <li><a href="#">{{r.domain}}</a></li>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="description">
-            <h3>Saved Paper</h3>
-            <h1>{{r.title}}</h1>
-            <h2>PUBLICATION NAME: {{r.journal_name}}</h2>
-            <p>{{r.abstract}} </p>
-            <p class="read-more">
-              <a href="/viewresearchpaper/">Read More</a>
-            </p>
-          </div>
-        </div>
-        {% endfor %}
-              <div class="blog-card">
-          <div class="meta">
-            <div class="photo"   ></div>
-            <ul class="details">
-              <li class="author"><a href="#"> Collaborator: Name</a></li>
-              <li class="date">Mar. 10, 2019</li>
-              <li class="tags">
-                <ul>
-                  <li><a href="#">Domain</a></li>
+              </div>
+              <div class="description">
+                <h3>Saved Paper</h3>
+                <h1>{{r.title}}</h1>
+                <h2>PUBLICATION NAME: {{r.journal_name}}</h2>
+                <p>{{r.abstract}}</p>
+                <p class="read-more">
+                  <a href="/viewresearchpaper/">Read More</a>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="blog-card">
+              <div class="meta">
+                <div
+                  class="photo"
+                  style="background-image: url('../static/img/analysis.jpeg')"
+                ></div>
+                <ul class="details">
+                  <li class="author"><a href="#"> Collaborator: Name</a></li>
+                  <li class="date">Mar. 10, 2019</li>
+                  <li class="tags">
+                    <ul>
+                      <li><a href="#">Domain</a></li>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="description">
-            <h1>Saved Paper</h1>
-            <h2>PUBLICATION NAME: SAMPLE</h2>
-            <p> Telecommunications companies plying their trade in Nigeria, have cried out once again over what they described as, increasing tax burdens on their shrinking business.
-      </p>
-            <p class="read-more">
-              <a href="#">Read More</a>
-            </p>
-          </div>
-        </div>
-              <div class="blog-card">
-          <div class="meta">
-            <div class="photo"   ></div>
-            <ul class="details">
-              <li class="author"><a href="#"> Collaborator: Name</a></li>
-              <li class="date">Mar. 10, 2019</li>
-              <li class="tags">
-                <ul>
-                  <li><a href="#">Domain</a></li>
+              </div>
+              <div class="description">
+                <h1>Saved Paper</h1>
+                <h2>PUBLICATION NAME: SAMPLE</h2>
+                <p>
+                  Telecommunications companies plying their trade in Nigeria,
+                  have cried out once again over what they described as,
+                  increasing tax burdens on their shrinking business.
+                </p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div class="meta">
+                <div class="photo"></div>
+                <ul class="details">
+                  <li class="author"><a href="#"> Collaborator: Name</a></li>
+                  <li class="date">Mar. 10, 2019</li>
+                  <li class="tags">
+                    <ul>
+                      <li><a href="#">Domain</a></li>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="description">
-            <h1>Saved Paper</h1>
-            <h2>PUBLICATION NAME: SAMPLE</h2>
-            <p> Telecommunications companies plying their trade in Nigeria, have cried out once again over what they described as, increasing tax burdens on their shrinking business.
-      </p>
-            <p class="read-more">
-              <a href="#">Read More</a>
-            </p>
-          </div>
-        </div>
+              </div>
+              <div class="description">
+                <h1>Saved Paper</h1>
+                <h2>PUBLICATION NAME: SAMPLE</h2>
+                <p>
+                  Telecommunications companies plying their trade in Nigeria,
+                  have cried out once again over what they described as,
+                  increasing tax burdens on their shrinking business.
+                </p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
 
-        <div class="blog-card">
-          <div class="meta">
-            <div class="photo"   ></div>
-            <ul class="details">
-              <li class="author"><a href="#"> Collaborator: Name</a></li>
-              <li class="date">Mar. 10, 2019</li>
-              <li class="tags">
-                <ul>
-                  <li><a href="#">Domain</a></li>
+            <div class="blog-card">
+              <div class="meta">
+                <div class="photo"></div>
+                <ul class="details">
+                  <li class="author"><a href="#"> Collaborator: Name</a></li>
+                  <li class="date">Mar. 10, 2019</li>
+                  <li class="tags">
+                    <ul>
+                      <li><a href="#">Domain</a></li>
+                    </ul>
+                  </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="description">
-            <h1>Saved Paper</h1>
-            <h2>PUBLICATION NAME: SAMPLE</h2>
-            <p> Telecommunications companies plying their trade in Nigeria, have cried out once again over what they described as, increasing tax burdens on their shrinking business.
-      </p>
-            <p class="read-more">
-              <a href="#">Read More</a>
-            </p>
-          </div>
-        </div>
-
+              </div>
+              <div class="description">
+                <h1>Saved Paper</h1>
+                <h2>PUBLICATION NAME: SAMPLE</h2>
+                <p>
+                  Telecommunications companies plying their trade in Nigeria,
+                  have cried out once again over what they described as,
+                  increasing tax burdens on their shrinking business.
+                </p>
+                <p class="read-more">
+                  <a href="#">Read More</a>
+                </p>
+              </div>
+            </div>
           </section>
         </div>
-
-      
-      
       </div>
-      </div>
-</body>
-<footer class="footer-07">
-  <div class="container">
+    </div>
+  </body>
+  <footer class="footer-07">
+    <div class="container">
       <div class="row justify-content-center">
-          <div class="col-md-12 text-center">
-              <h2 class="footer-heading"><a href="#" class="logo">Research Panachea</a></h2>
-              <p class="menu">
-                  <a href="/">Home</a>
-                  <a href="/researchpapers/">Research Paper</a>
-                  <a href="#">Collaborators</a>
-                  <a href="/userprofile/">Profile</a>
-                  
-              </p>
-              <ul class="ftco-footer-social p-0">
-    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fab fa-twitter"></span></a></li>
-    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"><i class="fab fa-facebook"></i></span></a></li>
-    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fab fa-instagram"></span></a></li>
-  </ul>
-          </div>
+        <div class="col-md-12 text-center">
+          <h2 class="footer-heading">
+            <a href="#" class="logo">Research Panachea</a>
+          </h2>
+          <p class="menu">
+            <a href="/">Home</a>
+            <a href="/researchpapers/">Research Paper</a>
+            <a href="#">Collaborators</a>
+            <a href="/userprofile/">Profile</a>
+          </p>
+          <ul class="ftco-footer-social p-0">
+            <li class="ftco-animate">
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Twitter"
+                ><span class="fab fa-twitter"></span
+              ></a>
+            </li>
+            <li class="ftco-animate">
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Facebook"
+                ><span class="ion-logo-facebook"
+                  ><i class="fab fa-facebook"></i></span
+              ></a>
+            </li>
+            <li class="ftco-animate">
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Instagram"
+                ><span class="fab fa-instagram"></span
+              ></a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="row mt-5">
-          <div class="col-md-12 text-center">
-              <p class="copyright">
-                Copyright &copy; Research Panachea
-            </p>
-          </div>
+        <div class="col-md-12 text-center">
+          <p class="copyright">Copyright &copy; Research Panachea</p>
+        </div>
       </div>
-  </div>
-</footer>   
-<script>
-
-$(document).ready(function(){
-    $(window).scroll(function(){
-        if($(window).scrollTop() < 200){
-            $(".navbar").css({"background-color":"transparent"});   
+    </div>
+  </footer>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() < 200) {
+          $(".navbar").css({ "background-color": "transparent" });
+        } else {
+          $(".navbar").css({ "background-color": "white" });
         }
-        else{
-            $(".navbar").css({"background-color":"white"});
-        }
-
-    })
-})
-console.log("Is is even working?")
-</script>
+      });
+    });
+    console.log("Is is even working?");
+  </script>
 </html>

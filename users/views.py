@@ -1,5 +1,8 @@
+from re import I
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
+from collaboration.views import collabfeed
 from .models import *
 from django.contrib.auth.hashers import make_password, check_password
 import os
@@ -15,7 +18,15 @@ with open('skills.json') as file:
     keys = data.keys()
 
 def home(request):
-    return render(request,'homepage.html')
+    if 'username' in request.session:
+        context = {
+            'username':request.session['username']
+        }
+    else:
+        context = {
+            'username':None
+        }
+    return render(request,'homepage.html', context)
 
 def login(request):
     if request.method == "GET":
@@ -63,7 +74,7 @@ def dashboardfeed(request):
     if 'username' in request.session:
         cuser = Users.objects.filter(username = request.session['username'])[0]
         if request.method == 'GET':
-            papers = ResearchPapers.objects.all().order_by("created_at")
+            papers = ResearchPapers.objects.all().order_by("-created_at")
             conferences = Conference.objects.all()
             collabs = CollaborationRequests.objects.all().order_by("created_at")
             usernames = []
@@ -146,6 +157,12 @@ def research_mat(data):
 def viewresearchpaper(request, rid):
     if request.method == "GET":
         paper = ResearchPapers.objects.filter(id = rid)[0]
+        p_user = UserResearch.objects.filter(research_id= paper.id)[0]
+        p_user = Users.objects.filter(id  = p_user.user_id)[0]
+        p_username = p_user.username
+        p_keywords = paper.keywords.split(';')
+        p_collabs = paper.collab_ids.split(';')
+        
         mat = research_mat(data)
         sim = np.dot(mat , mat.T)
         output = sim[paper.id]
@@ -158,19 +175,27 @@ def viewresearchpaper(request, rid):
         similar_papers = []
         for p in sim_papers:
             similar_papers.append(ResearchPapers.objects.filter(id = p)[0])
-
+        sim_usernames = []
+        for r in similar_papers:
+            r.abstract = r.abstract[:300]+"...."
+            r_user = UserResearch.objects.filter(research_id= r.id)[0]
+            u = Users.objects.filter(id= r_user.user_id)[0]
+            sim_usernames.append(u.username)
         context = {
             'paper':paper,
-            'sim_papers':similar_papers
+            'sim_papers':similar_papers,
+            'sim_usernames':sim_usernames,
+            'p_username':p_username,
+            'p_keywords':p_keywords,
+            'p_collabs':p_collabs
 
         }
-        
-        return HttpResponse(paper.title)
-        # return render(request, 'viewresearchpaper.html',context)
+        # return HttpResponse(paper.title)
+        return render(request, 'rpdetails.html',context)
 
 def addresearchpaper(request):
     if 'username' in request.session:
-        cuser = Users.objects.filter(username = request.session['username'])
+        user = Users.objects.filter(username = request.session['username'])
         if request.method== "POST":
             title = request.POST.get('title')
             abstract = request.POST.get('abstract')
@@ -180,15 +205,24 @@ def addresearchpaper(request):
             domain = request.POST.get('domain')
             doi = request.POST.get('doi')
             published_date = request.POST.get('published_date')
-
+            url = request.POST.get('url')
+            collaborators = []
+            i=1
+            while request.POST.get(f'collaborators{i}'):
+                collaborators.append(request.POST.get(f'collaborators{i}'))
+                i = i+1
+            print(collaborators)
+            collabs = ';'.join(str(item) for item in collaborators)+user.username    
             # Add User Collaborators
-            
-            new_paper = ResearchPapers(title= title, abstract = abstract,conference_name = conference_name, journal_name = journal_name, keywords=keywords, domain = domain, doi = doi,published_date = published_date)
+            new_paper = ResearchPapers(title= title, abstract = abstract,conference_name = conference_name, journal_name = journal_name, keywords=keywords, domain = domain, doi = doi,published_date = published_date, url = url, collab_ids = collabs)
             new_paper.save()
+            r = ResearchPapers.objects.filter(title = title, abstract = abstract)[0]
+            db = UserResearch(research_id = r.id,user_id = user.id)
+            db.save() 
             return redirect('/addresearchpaper/')
-        elif request.method == 'GET':
 
-            return HttpResponse("ADD RESEARCH PAPER FORM")
+        elif request.method == 'GET':
+            return render(request, 'addrspaper.html')
         else:
             return render(request,'404.html')    
     else:
@@ -325,14 +359,17 @@ def userprofile(request):
             for u in user_rs:
                 paper = ResearchPapers.objects.filter(id = u.research_id)[0]
                 papers.append(paper)
+            p_collabs = []    
             for p in papers:
-                p.abstract = p.abstract[:300]+"...."    
+                p.abstract = p.abstract[:300]+"...."
+                p_collabs.append(p.collab_ids.split(';'))    
             context = {
                 'user':user,
                 'papers':papers,
                 'workexps' : workexps,
                 'educations' : educations,
-                'certifications':certifications
+                'certifications':certifications,
+                'p_collabs':p_collabs
             }
             return render(request,'userprofile.html',context)  
     else:
