@@ -146,6 +146,11 @@ def research_mat(data):
 def viewresearchpaper(request, rid):
     if request.method == "GET":
         paper = ResearchPapers.objects.filter(id = rid)[0]
+        p_user = UserResearch.objects.filter(research_id= paper.id)[0]
+        p_user = Users.objects.filter(id  = p_user.user_id)[0]
+        p_username = p_user.username
+        p_keywords = paper.keywords.split(';')
+        
         mat = research_mat(data)
         sim = np.dot(mat , mat.T)
         output = sim[paper.id]
@@ -158,15 +163,22 @@ def viewresearchpaper(request, rid):
         similar_papers = []
         for p in sim_papers:
             similar_papers.append(ResearchPapers.objects.filter(id = p)[0])
-
+        sim_usernames = []
+        for r in similar_papers:
+            r.abstract = r.abstract[:300]+"...."
+            r_user = UserResearch.objects.filter(research_id= r.id)[0]
+            u = Users.objects.filter(id= r_user.user_id)[0]
+            sim_usernames.append(u.username)
         context = {
             'paper':paper,
-            'sim_papers':similar_papers
+            'sim_papers':similar_papers,
+            'sim_usernames':sim_usernames,
+            'p_username':p_username,
+            'p_keywords':p_keywords
 
         }
-        
-        return HttpResponse(paper.title)
-        # return render(request, 'viewresearchpaper.html',context)
+        # return HttpResponse(paper.title)
+        return render(request, 'rpdetails.html',context)
 
 def addresearchpaper(request):
     if 'username' in request.session:
