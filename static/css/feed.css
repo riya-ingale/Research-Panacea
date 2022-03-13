@@ -54,8 +54,13 @@ header h1 {
 }
 
 /* Calender Plan */
+section{
+  box-shadow: 4px 4px 15px 5px rgba(0, 0, 0, 0.11),
+    -4px -4px 15px 5px rgba(0, 0, 0, 0.1);
+}
 section.calender-plan {
   margin-bottom: 10px;
+  
 }
 
 section.calender-plan p.title {
@@ -436,7 +441,7 @@ div.tab:hover p {
 
 .blog-body {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 .video-body {

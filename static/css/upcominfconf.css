@@ -2,7 +2,7 @@
 body{
 	/* background-image: radial-gradient(circle, #ffffff, #f1ebf5, #e8d6e8, #e4c1d5, #e0abbe); */
 	background: url('../img/bg-color.png');
-	background-size: cover;
+	background-size:contain;
 }
 /* NavBar */
 .navbar 
