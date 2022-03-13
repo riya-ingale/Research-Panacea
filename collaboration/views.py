@@ -107,3 +107,36 @@ def chat(request):
 
 # def searchcollabs(request):
     
+def viewproposals(request):
+    if 'username' in request.session:
+        user = Users.objects.filter(username = request.session['username'])[0]
+        if request.method == "GET":
+            proposals = []
+            collab_ids = CollaborationRequests.objects.filter(user = user.id).all()
+            for c in collab_ids:
+                try:
+                    proposal = Proposals.objects.filter(collabrequest = c.id)[0]
+                    proposals.append(proposal)
+                except:
+                    pass    
+            collabs = []    
+            p_usernames = []    
+            for p in proposals:
+                user = Users.objects.filter(id = p.user)[0]
+                p_usernames.append(user.username)
+                col = CollaborationRequests.objects.filter(id = p.collabrequest)[0]
+                collabs.append(col.title)
+            context = {
+                'proposals':proposals,
+                'collabs':collabs,
+                'p_usernames':p_usernames
+            }    
+            return render(request, 'Collaborators.html', context)    
+
+def viewcoverletter(request, pid):
+    if request.method == "POST":
+        proposal  =Proposals.objects.filter(id = pid)[0]
+        filename = proposal.media.name.split('/')[-1]
+        response = HttpResponse(proposal.media, content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename=%s' % filename
+        return response            

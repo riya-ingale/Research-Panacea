@@ -1,213 +1,321 @@
+{% load static %} {% load index %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!--Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/css/collaborator.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/collaborator.css' %}"
+    />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <title>Research Panacea</title>
-</head>
-<body>
-    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Research Portal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  </head>
+  <body style="background-image: url('../static/img/light-bg.png')">
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Research Portal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/feed/"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profile
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Profile</a></li>
+                <li><a class="dropdown-item" to="/chat">Chat</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Events
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" to="/">Academic Events</a></li>
+                <li>
+                  <a class="dropdown-item" to="/upcomingconf"
+                    >Upcoming Conferences</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Research
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" to="/research">Research Papers</a>
+                </li>
+                <li><a class="dropdown-item" to="/">Collaborate</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" to="/">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button type="button" class="btn btn-outline-dark navbar-btn">
+              Log Out
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" to='/'>Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Profile
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" to='/'>Profile</a></li>
-                    <li><a class="dropdown-item" to='/chat'>Chat</a></li>
-                </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Events
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" to='/'>Academic Events</a></li>
-                     <li><a class="dropdown-item" to='/upcomingconf'>Upcoming Conferences</a></li>
-                     <li><hr class="dropdown-divider"/></li>
-                     <li><a class="dropdown-item" to='/'>Something else here</a></li>
-                </ul>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Research
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" to='/research'>Research Papers</a></li>
-                    <li><a class="dropdown-item" to='/'>Collaborate</a></li>
-                    <li><hr class="dropdown-divider"/></li>
-                    <li><a class="dropdown-item" to='/'>Something else here</a></li>
-                </ul>
-                </li>
-            </ul>
-            <form class="d-flex">
-              <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container collab-container">
+      <div class="row">
+        <div class="row justify-content-center padding">
+          <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
+            <form action="#" class="domain-form">
+              <div class="form-group d-md-flex">
+                <input
+                  type="text"
+                  class="form-control px-4"
+                  placeholder="Enter name here..."
+                />
+                <input
+                  type="submit"
+                  class="search-domain btn btn-primary px-5"
+                  value=" Search User"
+                />
+              </div>
             </form>
-            </div>
+          </div>
         </div>
-        </nav>
-        <div class="container collab-container">
-            <div class="row">
-                <div class="row justify-content-center padding">
-                    <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
-                        <form action="#" class="domain-form">
-                            <div class="form-group d-md-flex"> <input type="text" class="form-control px-4" placeholder="Enter name here..."/> <input type="submit" class="search-domain btn btn-primary px-5" value=" Search User"/> </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-            
-        <!-- For demo purpose -->
-<div class="container py-5">
-   
-</div><!-- End -->
-
-
-<div class="container">
-    <div class="row text-center">
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-github"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-google"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                    <button class=" btn btn-con">Connect</button>
-                    <button type="button" class=" btn btn-con" data-bs-toggle="modal" data-bs-target="#exampleModal">See Proposal</button>
-                    <!-- Button trigger modal -->
-                    
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the prefedined max-height of modal, content will be cropped and scrollable within the modal.<br><br><br><br>
-                                This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the prefedined max-height of modal, content will be cropped and scrollable within the modal.
-                                This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the prefedined max-height of modal, content will be cropped and scrollable within the modal.
-                            </div>
-                            <div class="modal-footer">                            
-                            <button type="button" class="btn btn-primary">Accept</button>
-                            <button type="button" class="btn btn-danger">Reject</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </ul>
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">Tom Sunderland</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div><!-- End -->
-
-        <!-- Team item -->
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-                <ul class="social mb-0 list-inline mt-3">
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div><!-- End -->
+      </div>
     </div>
-</div>
-<footer class="footer-07">
+
+    <!-- For demo purpose -->
+    <div class="container py-5"></div>
+    <!-- End -->
+
     <div class="container">
+      <div class="row text-center">
+        {% for p in proposals %}
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4">
+            <img
+              src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg"
+              alt=""
+              width="100"
+              class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+            />
+            <h5 class="mb-0">{{ p_usernames|index:forloop.counter0 }}</h5>
+            <span class="small text-uppercase text-muted"
+              >{{ collabs|index:forloop.counter0 }}</span
+            >
+            <ul class="social mb-0 list-inline mt-3">
+              <li class="list-inline-item">
+                <a href="#" class="social-link"><i class="fa fa-github"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-link"><i class="fa fa-google"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-link"
+                  ><i class="fa fa-linkedin"></i
+                ></a>
+              </li>
+              <br />
+              <form method="GET" action="/collaboration/chat/">
+                <button type="submit" class="btn btn-con">Connect</button>
+                <button
+                  type="button"
+                  class="btn btn-con"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  See Proposal
+                </button>
+              </form>
+              <!-- Button trigger modal -->
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      {{p.cover_letter}}
+                      <br /><br /><br />
+                      <form
+                        method="POST"
+                        action="/collaboration/viewcoverletter/{{p.id}}"
+                      >
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-dark">
+                          View Cover Letter
+                        </button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">
+                        Accept
+                      </button>
+                      <button type="button" class="btn btn-danger">
+                        Reject
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!-- End -->
+        {% endfor %}
+      </div>
+    </div>
+    <footer class="footer-07">
+      <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <h2 class="footer-heading"><a href="#" class="logo">Research Panachea</a></h2>
-                <p class="menu">
-                  <a href="#">Home</a>
-                  <a href="#">Research Paper</a>
-                  <a href="#">Collaborators</a>
-                  <a href="#">Profile</a>
-                </p>
-                <ul class="ftco-footer-social p-0">
-      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fab fa-twitter"></span></a></li>
-      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"><i class="fab fa-facebook"></i></span></a></li>
-      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fab fa-instagram"></span></a></li>
-    </ul>
-            </div>
+          <div class="col-md-12 text-center">
+            <h2 class="footer-heading">
+              <a href="#" class="logo">Research Panachea</a>
+            </h2>
+            <p class="menu">
+              <a href="/feed/">Home</a>
+              <a href="/researchpapers/">Research Paper</a>
+              <a href="/collaboration/viewcollaborations">Collaborators</a>
+              <a href="/userprofile/">Profile</a>
+            </p>
+            <ul class="ftco-footer-social p-0">
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Twitter"
+                  ><span class="fab fa-twitter"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Facebook"
+                  ><span class="ion-logo-facebook"
+                    ><i class="fab fa-facebook"></i></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a
+                  href="#"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Instagram"
+                  ><span class="fab fa-instagram"></span
+                ></a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="row mt-5">
-            <div class="col-md-12 text-center">
-                <p class="copyright">
-                  Copyright &copy; Research Panachea
-              </p>
-            </div>
+          <div class="col-md-12 text-center">
+            <p class="copyright">Copyright &copy; Research Panachea</p>
+          </div>
         </div>
-    </div>
-</footer>   
-</body>
-<script>
-
-    $(document).ready(function(){
-        $(window).scroll(function(){
-            if($(window).scrollTop() < 50){
-                $(".navbar").css({"background-color":"transparent"});   
-            }
-            else{
-                $(".navbar").css({"background-color":"white"});
-            }
-    
-        })
-    })
-    </script>
+      </div>
+    </footer>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() < 50) {
+          $(".navbar").css({ "background-color": "transparent" });
+        } else {
+          $(".navbar").css({ "background-color": "white" });
+        }
+      });
+    });
+  </script>
 </html>
