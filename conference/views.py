@@ -64,17 +64,17 @@ def insert_conf_db(request,name):
 
     return Title, Date, Venue, Web_link
 
-#Conference Details
-def conference_details(request,conf_id):
+#Event Details
+def event_details(request,event_id):
     try:
         if 'username' in request.session:
-            print(conf_id)
-            conf = Conference.objects.filter(id = conf_id)
+            print(event_id)
+            events = Events.objects.filter(id = event_id)[0]
             context = {
-                'conf_details':conf
+                'ed':events
             }
-            print(conf)
-            return render(request,'conferencedetails.html',context)
+            print(events)
+            return render(request,'eventdetails.html',context)
         else:
             return render(request,'login.html')
     except :
@@ -100,10 +100,26 @@ def upcoming_event(request):
             return render(request,'404.html')
     # return render(request,'404.html')
 
+def conference_details(request,conf_id):
+    try:
+        if 'username' in request.session:
+            print(conf_id)
+            conf = Conference.objects.filter(id = conf_id)
+            context = {
+                'conf_details':conf
+            }
+            print(conf)
+            return render(request,'conferencedetails.html',context)
+        else:
+            return render(request,'login.html')
+    except :
+        return render(request,'404.html')
+
 def registeration(request) :
     try:
         if 'username' in request.session:
             if type(Users.objects.get(username = request.session['username']).user_type)==str:
+                print('I am here')
                 if request.method == 'GET':
                     return render(request,'events_form.html')
                 elif request.method == 'POST':
@@ -114,6 +130,13 @@ def registeration(request) :
                     about = request.POST.get('about')
                     speaker = request.POST.get('speaker')
                     website = request.POST.get('website')
+                    # date = int(date[:2])
+                    # mon = date.split(',')[0][-3:]
+                    # year = date.split(',')[1]
+
+                    # d = str(date) + " " + str(mon) + " " + str(year)
+                    # timedate =  datetime.strptime(d, '%d %b %Y')
+                    # print('I am here 2')
                     domain = ""
                     count = 1
                     while(1):
@@ -148,12 +171,14 @@ def registeration(request) :
                     events_db.save()
                     return render(request,'events_form.html')
                 else:
+                    return HttpResponse('Method no Post')
                     return render(request,'404.html')
             else:
                 return render(request,'404.html')
         else:
             return render(request,'login.html')
     except:
+        return HttpResponse('Calculation Error')
         return render(request,'404.html')
 def name_changer(request,file,event_name):
     _, f_ext = os.path.splitext(file.name)

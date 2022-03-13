@@ -386,8 +386,10 @@ def userprofile(request):
             for p in papers:
                 p.abstract = p.abstract[:300]+"...."
                 p_collabs.append(p.collab_ids.split(';')) 
-
-            user_skills = user.skills.split(';')       
+            if user.skills:
+                user_skills = user.skills.split(';')  
+            else:
+                user_skills = None
             context = {
                 'user':user,
                 'papers':papers,
