@@ -130,15 +130,16 @@
         <div class="row align-items-start">
           <div class="col-lg-8 m-15px-tb">
             <article class="article">
-              <div class="article-img">
+              <!-- <div class="article-img">
                 <img
                   src="{% static 'img/research-paper-default.jpeg' %}"
                   style="max-width: 100% !important"
                 />
-              </div>
+              </div> -->
               <div class="article-title">
                 <h2>{{paper.title}}</h2>
                 <div class="media d-flex">
+                  {% for pc in p_collabs %}
                   <div class="avatar">
                     <img
                       src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -148,9 +149,10 @@
                     />
                   </div>
                   <div class="media-body" style="margin-right: 10px">
-                    <label>{{p_username}}</label>
+                    <label>{{pc}}</label>
                     <span>26 FEB 2022</span>
                   </div>
+                  {% endfor %}
                   <!-- <div class="avatar">
                     <img
                       src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -406,9 +408,7 @@
                       </h5>
                     </div>
                     <div class="lpa-meta">
-                      <a class="name" href="#">
-                        {{ sim_usernames|index:forloop.counter0 }}
-                      </a>
+                      
                       <a class="date" href="#"> 26 FEB 2022 </a>
                     </div>
                   </div>
@@ -446,6 +446,16 @@
                   <p>DOI : {{paper.doi}}</p>
                   <br />
                   {% endif %}
+                  <hr>
+                  {% if paper.url %}
+                  <br/>
+                  <p>
+                    <form method="GET" action="{{paper.url}}">
+                    <button class="btn btn-primary" type="submit" value="Visit">Visit Link</button>
+                    </form>
+                  </p>
+                  {% endif %}
+                  
                 </div>
               </div>
             </div>
