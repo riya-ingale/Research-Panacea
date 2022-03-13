@@ -100,7 +100,7 @@ class Certification(models.Model):
     completition_date = models.DateTimeField()
 
 class Events(models.Model):
-    organizer = models.IntegerField()
+    organizer = models.IntegerField() #fk of user
     dates = models.DateTimeField()
     address = models.TextField(null=True)
     event_name = models.CharField(max_length=200)

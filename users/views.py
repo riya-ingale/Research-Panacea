@@ -35,22 +35,22 @@ def login(request):
     elif request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-        try:
-            t = Users.objects.get(username = username)
-            print(t)
-            if check_password(password, t.password):
-                if 'username' in request.session:
-                    del request.session['username']
-                request.session['username'] = username
-                print(request.session['username'])
-                return redirect('/feed/')
-            else:
-                print("Password Incorrect") 
-                return redirect('/login/')   
+        # try:
+        t = Users.objects.get(username = username)
+        print(t)
+        if check_password(password, t.password):
+            if 'username' in request.session:
+                del request.session['username']
+            request.session['username'] = username
+            print(request.session['username'])
+            return redirect('/feed/')
+        else:
+            print("Password Incorrect") 
+            return redirect('/login/')   
             # redirect to success page
-        except:    
-            print("LOGIN failed")
-            return HttpResponse("LOGIN FAILED")        
+        # except:    
+        #     print("LOGIN failed")
+        #     return HttpResponse("LOGIN FAILED")        
 
 
 def register(request):
