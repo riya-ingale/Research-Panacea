@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/certificate-form.css' %}" />
+    <title>Certificate Input</title>
+  </head>
+  <body>
+    <section class="get_in_touch">
+      <h1 class="title">Certificate</h1>
+      <div class="container">
+        <form method="POST" action="/addcertification/">
+          {% csrf_token %}
+
+          <div class="contact-form row">
+            <div class="form-field col-lg-6">
+              <input
+                id="name"
+                class="input-text"
+                type="text"
+                name="course_name"
+              />
+              <label for="name" class="label">Course Name</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id="date"
+                class="input-text"
+                type="date"
+                name="completition_date"
+              />
+              <script>
+                var date = new Date();
+                document.getElementById("date-picker").value =
+                  date.getFullYear() +
+                  "-" +
+                  (date.getMonth() + 1) +
+                  "-" +
+                  String(date.getDate()).padStart(2, "0");
+              </script>
+              <label for="date" class="label">Completion Date</label>
+            </div>
+
+            <div class="form-field col-lg-6">
+              <input
+                id="venue"
+                class="input-text"
+                type="text"
+                name="organization"
+              />
+              <label for="venue" class="label">Organisation Name</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="phone" class="input-text" type="text" name="link" />
+              <label for="phone" class="label">Certificate URL</label>
+            </div>
+
+            <div class="form-field col-lg-12">
+              <input
+                class="submit-btn"
+                type="submit"
+                value="submit"
+                name="Submit"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

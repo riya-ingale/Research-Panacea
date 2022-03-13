@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/work-ex.css' %}" />
+    <title>Add Work Experience</title>
+  </head>
+  <body>
+    <section class="get_in_touch">
+      <h1 class="title">Work-Ex</h1>
+      <div class="container">
+        <form method="POST" action="/addworkexp/" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="contact-form row">
+            <div class="form-field col-lg-6">
+              <input
+                id="name"
+                class="input-text"
+                type="text"
+                name="organization"
+              />
+              <label for="name" class="label">Organisation name</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id="date"
+                class="input-text"
+                type="date"
+                name="startdate"
+              />
+              <script>
+                var date = new Date();
+                document.getElementById("date-picker").value =
+                  date.getFullYear() +
+                  "-" +
+                  (date.getMonth() + 1) +
+                  "-" +
+                  String(date.getDate()).padStart(2, "0");
+              </script>
+              <label for="date" class="label">Start Date</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="date" class="input-text" type="date" name="enddate" />
+              <script>
+                var date = new Date();
+                document.getElementById("date-picker").value =
+                  date.getFullYear() +
+                  "-" +
+                  (date.getMonth() + 1) +
+                  "-" +
+                  String(date.getDate()).padStart(2, "0");
+              </script>
+              <label for="date" class="label">End date</label>
+            </div>
+
+            <div class="form-field col-lg-6">
+              <input
+                id="venue"
+                class="input-text"
+                type="text"
+                name="position"
+              />
+              <label for="venue" class="label">Designation/Job Title</label>
+            </div>
+
+            <div class="form-field col-lg-12">
+              <textarea
+                placeholder=""
+                rows="2"
+                class="input-text"
+                name="description"
+              ></textarea>
+              <label for="about" class="label">About the Job</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id="phone"
+                class="input-text"
+                type="text"
+                name="employment_type"
+              />
+              <label for="phone" class="label"
+                >Employment Type
+                <small class="text-muted"
+                  >(Internship/Full Time/Part Time)</small
+                ></label
+              >
+            </div>
+
+            <div class="form-field col-lg-6">
+              <input id="image" class="input-text" type="file" name="media" />
+              <label for="image" class="label"
+                >Media<span> (if any)</span></label
+              >
+            </div>
+            <div class="form-field col-lg-12">
+              <input
+                class="submit-btn"
+                type="submit"
+                value="submit"
+                name="Submit"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

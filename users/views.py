@@ -1,3 +1,4 @@
+from multiprocessing import context
 from re import I
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -240,7 +241,7 @@ def saverspaper(request,rid):
 
 def addeducation(request):
     if 'username' in request.session:
-        user  = Users.objects.filter(username = request.session['username'])
+        user  = Users.objects.filter(username = request.session['username'])[0]
         if request.method == "POST":
             username = user.username
             institution = request.POST.get('institution')
@@ -250,17 +251,19 @@ def addeducation(request):
             start_date = request.POST.get('start_date')
             end_date = request.POST.get('end_date')
 
-            media = request.FILES['media']
-            _, f_ext = os.path.splitext(media.name)
-            media_filename = username+institution+f_ext
-            print(media_filename)
-            media.name = media_filename
+            
+            # media = request.FILES['media']
+            # _, f_ext = os.path.splitext(media.name)
+            # media_filename = username+institution+f_ext
+            # print(media_filename)
+            # media.name = media_filename
 
-            db = Education(user_id = user.id ,institution = institution,degree = degree, grade = grade, description = description, start_date = start_date, end_date = end_date, media = media)
+            db = Education(user_id = user.id ,institution = institution,degree = degree, grade = grade, description = description, start_date = start_date, end_date = end_date)
             db.save()
-            print("EDUCATION HISTORY ADDED")
+            return redirect('/userprofile/')
+
         elif request.method == "GET":
-            pass
+            return render(request, 'education.html')
     else:
         return render(request,'404.html')
 
@@ -268,7 +271,7 @@ def addworkexp(request):
     if 'username' in request.session:
         user = Users.objects.filter(username = request.session['username'])[0]
         if request.method == "GET":
-            return HttpResponse("ADD WORK EXPERIENCE INTERFACE")
+            return render(request, 'work-ex.html')
         elif request.method == "POST":
             organization = request.POST.get('organization')
             position = request.POST.get('position')
@@ -276,10 +279,10 @@ def addworkexp(request):
             location = request.POST.get('location')
             description = request.POST.get('description')
             ongoing = request.POST.get('ongoing')
-            start_date = request.POST.get('start_date')
-            end_date = request.POST.get('end_date')
+            start_date = request.POST.get('startdate')
+            end_date = request.POST.get('enddate')
 
-            media = request.FILES['organization']
+            media = request.FILES['media']
             _, f_ext = os.path.splitext(media.name)
             media_filename = user.username+organization+f_ext
             print(media_filename)
@@ -287,6 +290,7 @@ def addworkexp(request):
 
             db = WorkExp(user_id = user.id, organization = organization, position=position, employment_type = employment_type, location = location, description = description, ongoing = ongoing, start_date = start_date, end_date = end_date)
             db.save()
+            return redirect('/userprofile/')
         else:
             return render(request, '404.html')       
     else:
@@ -294,42 +298,61 @@ def addworkexp(request):
 
 
 def editprofile(request):
-    if request.method == "POST":
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        contactno = request.POST.get('contactno')
-        usertype = request.POST.get('usertype')
-        organization_name = request.POST.get('organization_name')
-        profession = request.POST.get('profession')
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        country = request.POST.get('country')
-        skills = request.POST.get('skilss')
-        description = request.POST.get('description')
-        languages = request.POST.get('languages')
-        scholar = request.POST.get('scholar')
-        orchid = request.POST.get('orchid')
+    if 'username' in request.session:
+        user = Users.objects.filter(username = request.session['username'])[0]
+        if request.method == "POST":
+            user.first_name = request.POST.get('first_name')
+            user.last_name = request.POST.get('last_name')
+            user.username = request.POST.get('username')
+            user.email = request.POST.get('email')
+            user.contactno = request.POST.get('contactno')
+            user.organization_name = request.POST.get('organization_name')
+            user.profession = request.POST.get('profession')
+            user.city = request.POST.get('city')
+            user.state = request.POST.get('state')
+            user.country = request.POST.get('country')
+            user.skills = request.POST.get('skilss')
+            user.description = request.POST.get('description')
+            user.languages = request.POST.get('languages')
+            user.scholar = request.POST.get('scholar')
+            user.orchid = request.POST.get('orchid')
+            user.github = request.POST.get('github')
+            user.linkedin = request.POST.get('linkedin')
+            try:
+                image = request.FILES['profile_pic']
+                _, f_ext = os.path.splitext(image.name)
+                image_filename = user.username + f_ext
+                print(image_filename)
+                image.name = image_filename
+                user.image = image
+            except:
+                pass
 
-        image = request.FILES['profile_pic']
-        _, f_ext = os.path.splitext(image.name)
-        image_filename = username + f_ext
-        print(image_filename)
-        image.name = image_filename
+            skills = []
+            i=1
+            while request.POST.get(f'skills{i}'):
+                skills.append(request.POST.get(f'skills{i}'))
+                i = i+1
+            print(skills)
+            skills = ';'.join(str(item) for item in skills)
+            user.skills = skills
 
-        db = Users(first_name= first_name, last_name = last_name, username = username, email = email, contactno = contactno, usertype = usertype, organization_name = organization_name, profession = profession, city = city, state = state, country = country,skills = skills, description = description, languages = languages, scholar = scholar, orchid = orchid, profile_pic = image)
-        db.save()
-        return redirect('/dashboard/')
-    elif request.method == "GET":
-        return HttpResponse("EDIT USER GENERAL INFO PAGE")    
-    
+            # db = Users(first_name= first_name, last_name = last_name, username = username, email = email, contactno = contactno, usertype = usertype, organization_name = organization_name, profession = profession, city = city, state = state, country = country,skills = skills, description = description, languages = languages, scholar = scholar, orchid = orchid, profile_pic = image, github = github, linkedin = linkedin)
+            user.save()
+            return redirect('/userprofile/')
+        elif request.method == "GET":
+            context = {
+                'user':user
+            }
+            return render(request, 'editprofile.html', context)    
+    else:
+        return render(request, '404.html')
 
-def addcertifications(request):
+def addcertification(request):
     if 'username' in request.session:
         user = Users.objects.filter(username = request.session['username'])
         if request.method == 'GET':
-            return HttpResponse("ADD CERTIFICATIONS PAGE")
+            return render(request, 'certificate-form.html')
         elif request.method == "POST":
             course_name = request.POST.get('course_name')
             organization = request.POST.get('organization')
@@ -362,14 +385,17 @@ def userprofile(request):
             p_collabs = []    
             for p in papers:
                 p.abstract = p.abstract[:300]+"...."
-                p_collabs.append(p.collab_ids.split(';'))    
+                p_collabs.append(p.collab_ids.split(';')) 
+
+            user_skills = user.skills.split(';')       
             context = {
                 'user':user,
                 'papers':papers,
                 'workexps' : workexps,
                 'educations' : educations,
                 'certifications':certifications,
-                'p_collabs':p_collabs
+                'p_collabs':p_collabs,
+                'user_skills':user_skills
             }
             return render(request,'userprofile.html',context)  
     else:
@@ -392,7 +418,8 @@ def otherprofile(request,uid):
                 paper = ResearchPapers.objects.filter(id = u.research_id)[0]
                 papers.append(paper)
             for p in papers:
-                p.abstract = p.abstract[:300]+"...."    
+                p.abstract = p.abstract[:300]+"...." 
+                  
             context = {
                 'user':user,
                 'papers':papers,

@@ -1,0 +1,173 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/editprofile.css' %}">
+    <title>Edit your Profile</title>
+  </head>
+  <body>
+    <section class="get_in_touch">
+    <h1 class="title">Edit Your Profile</h1>
+    <div class="container">
+      <form method="POST" action="/editprofile/" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+      <div class="contact-form row">
+        <div class="form-field col-lg-6">
+          <input id="name" class="input-text" type="text" name="first_name" value="{{user.first_name}}" required>
+          <label for="name" class="label">First name</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="name" class="input-text" type="text" name="last_name" value = {{user.last_name}} required>
+          <label for="name" class="label">Last name</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="username" class="input-text" type="text" name="username" value = {{user.username}} readonly>
+          <label for="venue" class="label">Username</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="phone" class="input-text" type="text" value="{{user.contactno}}" name="contactno">
+          <label for="phone" class="label">Contact Number</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="email" class="input-text" type="text" name="email" value="{{user.email}}">
+          <label for="email" class="label">email</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="email" class="input-text" type="text" name="city" value="{{user.city}}">
+          <label for="email" class="label">city</label>
+        </div>
+        <div class="form-field col-lg-12">
+          <textarea placeholder="" rows="2" class="input-text" name="description" 
+          >{{user.description}}</textarea>
+          <label for="about" class="label">About Yourself</label>
+        </div>
+        
+        <div class="form-field col-lg-6">
+          <input id="committee" class="input-text" type="text" name="organization_name" value = {{user.organization_name}}>
+          <label for="committee" class="label">Organisation name</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="website" class="input-text" type="text" name="profession" value = {{user.profession}}>
+          <label for="website" class="label">Profession</label>
+        </div>
+        <div id="" class="lfield form-field col-lg-12">
+
+          <input placeholder="skills" type="text" id="i" class="input-text" value="{{user.skills}}"></input>
+          <!-- <label for="email" class="label-1" >Domain</label> -->
+          <input type="button" id="ba" class="Add-btn" value="Add"></input>
+          <input type="button" id="br" class="Add-btn" value="Reset"></input>
+          <div id="test" class="">
+
+          </div>
+        </div>
+        <div class="form-field col-lg-12">
+          <input id="website" class="input-text" type="text" name="scholar" value="{{user.scholar}}">
+          <label for="website" class="label">Google Scholar link</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="website" class="input-text" type="text" name="orchid" value="{{user.orchid}}">
+          <label for="website" class="label">Orchid link</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="website" class="input-text" type="text" name="github" value="{{user.github}}">
+          <label for="website" class="label">Github URL</label>
+        </div>
+        <div class="form-field col-lg-6">
+          <input id="website" class="input-text" type="text" name="linkedin" value="{{user.linkedin}}">
+          <label for="website" class="label">LinkedIn URL</label>
+        </div>
+       
+        <div class="form-field col-lg-6">
+          <input id="image" class="input-text" type="file" name = "profile_pic" value = {{user.profile_pic}}>
+          <label for="image" class="label">Profile image</label>
+        </div>
+        
+        <div class="form-field col-lg-12">
+          <input class="submit-btn" type="submit" value="submit" name="Submit">
+        </div>
+      </div>
+    </form>
+    </div>
+
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    $(function(){
+	var n;
+	var list = [];
+
+	// function to click add button when enter is pressed
+	$("#i").keyup(function(event) {
+		if (event.keyCode === 13) {
+			$("#ba").click();
+		}
+	});
+	
+	$("#ba").click(function(evt){
+		evt.preventDefault();
+		
+		// get current value of text input as n
+		n = $("#i").val();
+		
+		// only add if n is not empty
+		if(n.length>0){
+		
+			// reset text input to empty
+			$("#i").val("");
+			
+			// only add if n is not already in the list
+			if($.inArray(n,list)===-1){
+				// add n to list
+				list.push(n);
+				
+				// display n in the test div set its id as n
+				// $("#test").append("<div class='clickme' id='"+n+"'>"+n+"<img alt'Smiley face'  src='https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790846-9cancel_84247.png'></div>");
+        $("#test").append(
+              "<div class='clickme' id='" +
+                n +
+                "'>" +
+                n +
+                "<input placeholder='skills' type='text' style='display: none !important' name='skills" +list.length +"' id='' value = " +n +" class='input-text'></input><img alt'Smiley face'  src='https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790846-9cancel_84247.png'></div>"
+            );
+			}
+		}
+	});
+
+	$("#br").click(function(evt){
+		evt.preventDefault();
+		
+		// display nothing in test div
+		$("#test").empty();
+		
+		// empty the list
+		list = [];
+	});
+	
+	// deletes elements in test div on click
+	$(document).on('click','.clickme',function(evt){
+	
+		// get text of the current clicked div as n
+		n = $(this).text();
+		
+		// find the element with id n and remove it
+		$(this).parent().find("[id="+n+"]").remove();
+		
+		// remove n from the list
+		list = jQuery.grep(list, function(value) { return value != n; });
+	})
+});
+  </script>
+</html>

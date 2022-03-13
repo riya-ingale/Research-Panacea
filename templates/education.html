@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/education.css' %}" />
+    <title>Add Education Details</title>
+  </head>
+  <body>
+    <section class="get_in_touch">
+      <h1 class="title">Education</h1>
+      <div class="container">
+        <form method="POST" action="/addeducation/">
+          {% csrf_token %}
+          <div class="contact-form row">
+            <div class="form-field col-lg-12">
+              <input
+                id="name"
+                class="input-text"
+                type="text"
+                name="institution"
+              />
+              <label for="name" class="label">Institution Name</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input
+                id="date"
+                class="input-text"
+                type="date"
+                name="startdate"
+              />
+              <script>
+                var date = new Date();
+                document.getElementById("date-picker").value =
+                  date.getFullYear() +
+                  "-" +
+                  (date.getMonth() + 1) +
+                  "-" +
+                  String(date.getDate()).padStart(2, "0");
+              </script>
+              <label for="date" class="label">Start Date</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="date" class="input-text" type="date" name="enddate" />
+              <script>
+                var date = new Date();
+                document.getElementById("date-picker").value =
+                  date.getFullYear() +
+                  "-" +
+                  (date.getMonth() + 1) +
+                  "-" +
+                  String(date.getDate()).padStart(2, "0");
+              </script>
+              <label for="date" class="label">End Date</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="phone" class="input-text" type="text" name="degree" />
+              <label for="phone" class="label">Degree</label>
+            </div>
+            <div class="form-field col-lg-6">
+              <input id="phone" class="input-text" type="text" name="grade" />
+              <label for="phone" class="label">Grade</label>
+            </div>
+            <div class="form-field col-lg-12">
+              <textarea
+                placeholder=""
+                rows="2"
+                class="input-text"
+                name="description"
+              ></textarea>
+              <label for="about" class="label">Description</label>
+            </div>
+
+            <div class="form-field col-lg-12">
+              <input
+                class="submit-btn"
+                type="submit"
+                value="submit"
+                name="Submit"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -41,8 +41,10 @@
                   <p class="text-muted mb-1">Profession : {{user.profession}}</p>
                   <p class="text-muted mb-4">Location : {{user.city}}  {{user.state}}, {{user.country}}</p>
                   <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary">Edit Profile</button>
-                    <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                  <form method="GET">
+                    <button type="submit" formaction="/editprofile/" class="btn btn-primary">Edit Profile</button>
+                    <button type="submit" formaction="/collaboration/chat/" class="btn btn-outline-primary ms-1">Message</button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -82,25 +84,11 @@
                 
                 <div class="card-body p-0">
                   <ul class="list-group list-group-flush rounded-3">
+                    {% for s in user_skills %}
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      <p class="mb-0"><a href="" style="color:#333333" text-decoration > Web Development</a></p>
+                      <p class="mb-0"><a href="" style="color:#333333" text-decoration >{{s}}</a></p>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      
-                      <p class="mb-0"><a href="" style="color:#333333"> Machine Learning</a></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      
-                      <p class="mb-0"><a href="" style="color:#333333"> Amazon Web Services</a></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      
-                      <p class="mb-0"><a href="" style="color:#333333"> Python</a></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                      
-                      <p class="mb-0"><a href="" style="color:#333333"> https://link.com</a></p>
-                    </li>
+                    {% endfor %}
                   </ul>
                 </div>
                 
@@ -115,7 +103,7 @@
                       <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">{{user.fname}} {{user.lname}}</p>
+                      <p class="text-muted mb-0">{{user.first_name}} {{user.last_name}}</p>
                     </div>
                   </div>
                   <hr>
@@ -175,22 +163,14 @@
                         <span class="text-muted mb-0" >, {{w.organization}}</span>
                       </p>
                       <p>{{w.employment_type}}</p>
-                      <div class="progress rounded" style="height: 25px;">
+                      <!-- <div class="progress rounded" style="height: 25px;">
                         <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> 2 months </div>
-                      </div>
+                      </div> -->
+                      {% if w.description %}
+                      <p>About : {{w.description}}</p>
+                      {% endif %}
+                      <hr>
                       {% endfor %}
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup <span class="text-muted mb-0" >specifics</span></p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> Duration</div>
-                      </div>
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">One Page <span class="text-muted mb-0" >specifics</span></p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> Duration</div>
-                      </div>
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template <span class="text-muted mb-0" >specifics</span></p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> Duration</div>
-                      </div>
                       
                     </div>
                   </div>
@@ -198,26 +178,26 @@
                 <div class="col-md-6">
                   <div class="card mb-4 mb-md-0">
                     <div class="card-body">
-                      <p class="mb-4"><span class="text-primary font-italic me-1">2.</span>Education <button type="button" class="btn btn-outline-dark btn-sm btn-floating" style="margin-left:190px;">
-                        <i class="fas fa-plus"></i> </button></p>  
-                       {% for e in educations %} 
-                      <p class="mb-1" style="font-size: .77rem;">{{e.institution}}</p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">{{e.degree}}</p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">Year Of Graduation : 2023</p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <p class="mt-4 mb-1" style="font-size: .77rem;">{{e.grade}}</p>
-                      <div class="progress rounded" style="height: 25px;">
-                        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      {% endfor %}
+                      <p class="mb-4"><span class="text-primary font-italic me-1">2.</span>Education
+                        <form method="GET" action="/addeducation/">
+                        <button type="submit" class="btn btn-outline-dark btn-sm btn-floating" style="margin-left:190px;">
+                        <i class="fas fa-plus"></i> </button>
+                      </form>
+                    </p>  
+                    {% for e in educations %}
+                    <p class="mb-1" style="font-size: .98rem;">{{e.institution}}
+                      <span class="text-muted mb-0" >, {{e.degree}}</span>
+                    </p>
+                    <p>{{e.grade}}</p>
+                    <p><span class="text-muted mb-0" >, {{e.start_date}} - {{e.end_date}}</span></p>
+                    <!-- <div class="progress rounded" style="height: 25px;">
+                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> 2 months </div>
+                    </div> -->
+                    {% if e.description %}
+                    <p>About : {{e.description}}</p>
+                    {% endif %}
+                    <hr>
+                    {% endfor %}
                       
                     </div>
                   </div>

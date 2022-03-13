@@ -12,8 +12,9 @@ urlpatterns = [
     path('researchpapers/',views.researchpapers, name = "researchpapers"),
     path('addworkexp/', views.addworkexp,name = 'addworkexp'),
     path('addeducation/',views.addeducation, name = "addeducation"),
-    path('addcertifications/', views.addcertifications, name= 'addcertifications'),
+    path('addcertification/', views.addcertification, name= 'addcertification'),
     path('addresearchpaper/',views.addresearchpaper, name = 'addresearchpaper'),
     path('viewresearchpaper/<rid>',views.viewresearchpaper, name = "viewresearchpaper"),
-    path('saverspaper<rid>',views.saverspaper, name = "saverspaper")
+    path('saverspaper<rid>',views.saverspaper, name = "saverspaper"),
+    path('editprofile/',views.editprofile, name = "editprofile")
 ]
