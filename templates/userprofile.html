@@ -36,6 +36,7 @@
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
+                  <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> -->
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                   <h5 class="my-3">Username : {{user.username}}</h5>
                   <p class="text-muted mb-1">Profession : {{user.profession}}</p>
@@ -124,26 +125,7 @@
                       <p class="text-muted mb-0">{{user.description}}</p>
                     </div>
                   </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Previous collaborators</p>
-                    </div>
-                    <div class="col-sm-9">
-                        <a href="#!">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp" alt="avatar" class="img-fluid rounded-circle me-1" width="25">
-                          </a>
-                          <a href="#!">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp" alt="avatar" class="img-fluid rounded-circle me-1" width="25">
-                          </a>
-                          <a href="#!">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp" alt="avatar" class="img-fluid rounded-circle me-1" width="25">
-                          </a>
-                          <a href="#!">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar" class="img-fluid rounded-circle me-3" width="25">
-                          </a>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
               <div class="row">
@@ -218,8 +200,8 @@
                             <p class="small mb-0"><i class="far fa-star fa-lg"></i> <span class="mx-2">|</span> Completed <strong> {{c.course_name}}</strong> on 11 April , 2021</p>
                             <hr class="my-4">
                             <div class="d-flex justify-content-start align-items-center">
-                              <p class="mb-0 text-uppercase"><i class="fas fa-cog me-2"></i> <span class="text-muted small"><a href="" style="color:#333333"> View Certificate </a></span></p>
-                              <p class="mb-0 text-uppercase"><i class="fas fa-link ms-4 me-2"></i> <span class="text-muted small"><a href="https://www.coursera.org/learn/machine-learning?utm_source=gg&utm_medium=sem&utm_campaign=07-StanfordML-IN&utm_content=B2C&campaignid=1950458127&adgroupid=71501032500&device=c&keyword=coursera%20machine%20learning&matchtype=p&network=g&devicemodel=&adpostion=&creativeid=415449761695&hide_mobile_promo&gclid=CjwKCAiAprGRBhBgEiwANJEY7NEFSiJ5h7op67Nt_XC644_Q0xSU2a4HKzg_5jQ_-zjOgRH1VORUqxoCSjEQAvD_BwE" style="color:#333333"> Course Link </a></span></p>
+                              
+                              <p class="mb-0 text-uppercase"><i class="fas fa-link ms-4 me-2"></i> <span class="text-muted small"><a href="{{c.link}}" style="color:#333333"> Certificate Link </a></span></p>
                                 
                               <form method="GET" action="/addcertification/">
                               <button type="submit" class="btn btn-outline-dark btn-sm btn-floating" style="margin-left: 350px;">

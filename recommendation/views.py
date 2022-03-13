@@ -86,15 +86,18 @@ def recommendation(request):
             for i in collab:
                 c = CollaborationRequests.objects.filter(id = i)[0]
                 collabs.append(c)
-                skills.append(c.skills.split(';'))
+                skills.append(c.skills.split(';')) 
+            uskills = []    
             for u in users:
                 u = Users.objects.filter(id = u)[0]
                 userss.append(u)
+                uskills.append(u.skills.split(';'))
             context = {
                 'collabs':collabs,
                 'userss':userss,
                 'skills':skills,
-                'res_papers':res_papers
+                'res_papers':res_papers,
+                'uskills':uskills
             }
             return render(request, 'recommendation.html', context)
             
