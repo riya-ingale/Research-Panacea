@@ -162,7 +162,6 @@ def name_changer(request,file,event_name):
     file.name = filename
     return file
 
-<<<<<<< HEAD
 def journals(request):
     if 'username' in request.session:
         # add_journals(request,'journal_ranking.json')
@@ -220,7 +219,5 @@ def add_journals(request,name):
                         impact_factor=impact_factor,sjr=sjr,cite=cite_score,\
                             h_index=h_index,ranking=rank,top_scientist=top_scientist,top_docs=top_docs)
                 db.save()
-=======
 def calender(request):
     return render(request, 'calender.html')    
->>>>>>> 4bd8312be145b8e5b643797eee68b9eea2a5f999
