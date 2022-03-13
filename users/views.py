@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
+from collaboration.views import collabfeed
 from .models import *
 from django.contrib.auth.hashers import make_password, check_password
 import os
@@ -15,7 +17,15 @@ with open('skills.json') as file:
     keys = data.keys()
 
 def home(request):
-    return render(request,'homepage.html')
+    if 'username' in request.session:
+        context = {
+            'username':request.session['username']
+        }
+    else:
+        context = {
+            'username':None
+        }
+    return render(request,'homepage.html', context)
 
 def login(request):
     if request.method == "GET":
@@ -182,7 +192,7 @@ def viewresearchpaper(request, rid):
 
 def addresearchpaper(request):
     if 'username' in request.session:
-        cuser = Users.objects.filter(username = request.session['username'])
+        user = Users.objects.filter(username = request.session['username'])
         if request.method== "POST":
             title = request.POST.get('title')
             abstract = request.POST.get('abstract')
@@ -192,15 +202,19 @@ def addresearchpaper(request):
             domain = request.POST.get('domain')
             doi = request.POST.get('doi')
             published_date = request.POST.get('published_date')
-
+            url = request.POST.get('url')
+            collaborators = []
+            i=0
+            while request.POST.get(f'collaborators'):
+                collaborators.append(request.POST.get(f'collaborators'))
+                i = i+1
+            print(collaborators)    
             # Add User Collaborators
-            
-            new_paper = ResearchPapers(title= title, abstract = abstract,conference_name = conference_name, journal_name = journal_name, keywords=keywords, domain = domain, doi = doi,published_date = published_date)
+            new_paper = ResearchPapers(title= title, abstract = abstract,conference_name = conference_name, journal_name = journal_name, keywords=keywords, domain = domain, doi = doi,published_date = published_date, url = url)
             new_paper.save()
             return redirect('/addresearchpaper/')
         elif request.method == 'GET':
-
-            return HttpResponse("ADD RESEARCH PAPER FORM")
+            return render(request, 'addrspaper.html')
         else:
             return render(request,'404.html')    
     else:
