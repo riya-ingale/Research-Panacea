@@ -133,4 +133,25 @@ class SavedResearchPapers(models.Model):
     user_id = models.IntegerField(null=True)
     research_id = models.IntegerField(null=True)
 
-    
+class Journals(models.Model):
+    domain = models.CharField(max_length=300)
+    journal_name = models.CharField(max_length=300)
+    image_url = models.TextField(null=True)
+    aim = models.TextField(null=True)
+    period = models.CharField(max_length=100)
+    issn = models.CharField(max_length=150)
+    journal_link = models.TextField(null=True)
+    editor = models.TextField(null=True)
+    impact_score = models.FloatField(null=True)
+    impact_factor = models.FloatField(null=True)
+    sjr =  models.FloatField(null=True)
+    cite =  models.FloatField(null=True)
+    h_index =  models.FloatField(null=True)
+    ranking = models.IntegerField(null=True)
+    top_scientist = models.IntegerField(null=True)
+    top_docs = models.IntegerField(null=True)
+    saves = models.IntegerField(null=True)
+
+class JournalsUser(models.Model):
+    user_id = models.IntegerField(null=True)
+    journal_id = models.IntegerField(null=True)

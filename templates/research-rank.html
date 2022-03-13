@@ -80,12 +80,12 @@
 
                 <div class="forum-title">
                     <div class="pull-right forum-desc">
-                        <samll>Total posts: 320,800</samll>
+                        <samll>Total posts: {{number}}</samll>
                     </div>
-                    <h3>General subjects</h3>
+                    <h3>All International/National Journals</h3>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-3 d-flex justify-content-center">
                         <div class="dropdown">
                             <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,30 +125,32 @@
                             </ul>
                           </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row" style="margin-top: 10px;">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <span class="input-group-text" id="basic-addon2">Search</span>
                       </div>
                 </div>
+                {% for journal in journal_data %}
                 <div class="forum-item">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="forum-icon" style="margin-right: 50px;">
                                 <span class="views-number">
-                                    <img src="https://s.research.com/images/e6ad37cce9ad678b68dfacbfba8aaa7868019d9a-221x65.png" style="width: 50px;" alt="">
+                                    <img src="{{ journal.image_url }}" style="width: 50px;" alt="">
                                 </span>
-                                <div>
+                                <!-- <div>
                                     <strong>Rank:1</strong>
-                                </div>
+                                </div> -->
                             </div>
-                            <a href="forum_post.html" class="forum-item-title">IEEE Transactions On Pattern Analysis and Machine Learning</a>
-                            <div class="forum-sub-title" style="padding-left: 25px;">0162-8828, Monthly </div>
+                            <a href="{{ journal.journal_link }}" class="forum-item-title">{{ journal.journal_name }}</a>
+                            <div class="forum-sub-title" style="padding-left: 25px;">{{ journal.issn }}, {{ journal.period }} </div>
+                            <div class="forum-sub-title" style="padding-left: 25px;">Rank {{ journal.ranking }} in {{ journal.domain }} </div>
                         </div>
                         <div class="col-md-2 forum-info">
                             <span class="views-number">
-                                284
+                                {{ journal.top_scientist }}
                             </span>
                             <div>
                                 <small>Top Scientists</small>
@@ -156,7 +158,7 @@
                         </div>
                         <div class="col-md-2 forum-info">
                             <span class="views-number">
-                                461
+                                {{ journal.top_docs }}
                             </span>
                             <div>
                                 <small>Documents</small>
@@ -164,7 +166,7 @@
                         </div>
                         <div class="col-md-2 forum-info">
                             <span class="views-number">
-                                25.25
+                                {{ journal.impact_score }}
                             </span>
                             <div>
                                 <small>Impact Score</small>
@@ -172,7 +174,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="forum-item active">
+                {% endfor %}
+                <!-- <div class="forum-item active">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="forum-icon">
@@ -389,13 +392,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
             </div>
         </div>
     </div>
 </div>
-</div>
+</div> 
 <footer class="footer-07">
     <div class="container">
         <div class="row justify-content-center">

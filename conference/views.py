@@ -9,6 +9,7 @@ from datetime import datetime
 from users.models import Users
 from users.models import Events
 import os
+from users.models import Journals
 # Create your views here.
 def upcoming_conf(request):
     try:
@@ -160,3 +161,61 @@ def name_changer(request,file,event_name):
     print(filename)
     file.name = filename
     return file
+
+def journals(request):
+    if 'username' in request.session:
+        # add_journals(request,'journal_ranking.json')
+        # conf = Conference.objects.filter(id = conf_id)
+        # context = {
+        #     'conf_details':conf
+        # }
+        # print(conf)
+        journal = Journals.objects.all()
+        number = len(journal)
+        context = {
+            'number' :number,
+            'journal_data' : journal
+        }
+        return render(request,'research-rank.html',context)
+    else:
+        return render(request,'login.html')
+
+
+def add_journals(request,name):
+    f = open(name)
+    data = json.load(f)
+    domains= data.keys()
+    # print(domains)
+    for domain in domains:
+        domain_data = data[domain]
+        for journal_data in domain_data:
+            try:
+                j_data = data[domain][journal_data]
+                img = j_data['image']
+                aim = j_data['aim']
+                impact_score = float(j_data['metrics']['Research Impact Score:'])
+                impact_factor = float(j_data['metrics']['Impact Factor:'])
+                sjr = float(j_data['metrics']['SCIMAGO SJR:'])
+                cite_score = float(j_data['metrics']['Citescore:'])
+                h_index = float(j_data['metrics']['SCIMAGO H-index:'])
+                rank = int(j_data['metrics']['Research Ranking (Computer Science)'])
+                top_scientist = int(j_data['metrics']['Number of Top scientists:'])
+                top_docs = int(j_data['metrics']['Documents by top scientists:'])
+                editor = j_data['info']['Editors-in-Chief:']
+                issn = j_data['info']['ISSN:']
+                period = j_data['info']['Periodicity:']
+                journal_url = j_data['info']['Journal & Submission Website:']
+                # print(domain)
+                # break
+            except Exception as e:
+                print(e) 
+                print(j_data)
+            try:
+                t = Journals.objects.get(domain=domain,journal_name=journal_data)
+                # print(Title, date) 
+            except:
+                db = Journals(domain=domain,journal_name=journal_data,aim=aim,image_url=img,period=period,issn=issn,\
+                    journal_link=journal_url,editor=editor,impact_score=impact_score,\
+                        impact_factor=impact_factor,sjr=sjr,cite=cite_score,\
+                            h_index=h_index,ranking=rank,top_scientist=top_scientist,top_docs=top_docs)
+                db.save()
