@@ -1,4 +1,5 @@
 from multiprocessing import context
+import re
 from time import strftime
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -6,6 +7,7 @@ import json
 from users.models import Conference
 from datetime import datetime
 from users.models import Users
+from users.models import Events
 import os
 # Create your views here.
 def upcoming_conf(request):
@@ -23,13 +25,9 @@ def upcoming_conf(request):
                 date =  datetime.strptime(d, '%d %b %Y')
                 filt = Conference.objects.distinct().filter(timedate__gte = date)
                 print(len(filt))
-                # conf_names = []
-                # for conf in filt:
-                #     conf_names.append(conf.name)
                 context = {
                     'allconf':filt
                 }    
-                # print(conf_names)
                 return render(request,'upcomingconf.html',context)
             else:
                 return render(request,'404.html')
@@ -82,38 +80,83 @@ def conference_details(request,conf_id):
         return render(request,'404.html')
 
 def upcoming_event(request):
-    
-    return render(request,'404.html')
+    if 'username' in request.session:
+        if request.method == 'GET':
+            df = datetime.now()
+            day = df.strftime('%d')
+            month = df.strftime('%b')
+            year = df.strftime('%Y')
+            d = str(day) + " " + str(month) + " " + str(year)
+            date =  datetime.strptime(d, '%d %b %Y')
+            filt = Events.objects.distinct().filter(dates__gte = date)
+            
+            print(len(filt))
+            context = {
+                'allconf':filt
+            }  
+            return render(request,'academicevents.html',context)
+        else:
+            return render(request,'404.html')
+    # return render(request,'404.html')
 
 def registeration(request) :
-    # try:
-    if 'username' in request.session:
-        if type(Users.objects.get(username = request.session['username']).user_type)==str:
-            if request.method == 'GET':
-                return render(request,'events_form.html')
-            elif request.method == 'POST':
-                event_name = request.POST.get('event_name')
-                date = request.POST.get('date')
-                venue = request.POST.get('venue')
-                contact = request.POST.get('contact')
-                about = request.POST.get('about')
-                speaker = request.POST.get('speaker')
-                website = request.POST.get('website')
-                domain = request.POST.get('domain')
-                # image = request.FILES['profile_pic']
-                print(event_name,date,venue,contact,about,speaker,website,domain)
-                # _, f_ext = os.path.splitext(image.name)
-                # image_filename = username + f_ext
-                # print(image_filename)
-                # image.name = image_filename
-                # db = Users(first_name= first_name, last_name = last_name, username = username, email = email, contactno = contactno, usertype = usertype, organization_name = organization_name, profession = profession, city = city, state = state, country = country,skills = skills, description = description, languages = languages, scholar = scholar, orchid = orchid, profile_pic = image)
-                # db.save()
-                return render(request,'events_form.html')
+    try:
+        if 'username' in request.session:
+            if type(Users.objects.get(username = request.session['username']).user_type)==str:
+                if request.method == 'GET':
+                    return render(request,'events_form.html')
+                elif request.method == 'POST':
+                    event_name = request.POST.get('event_name')
+                    date = request.POST.get('date')
+                    venue = request.POST.get('venue')
+                    contact = request.POST.get('contact')
+                    about = request.POST.get('about')
+                    speaker = request.POST.get('speaker')
+                    website = request.POST.get('website')
+                    domain = ""
+                    count = 1
+                    while(1):
+                        if type(request.POST.get('domain'+str(count))) != str:
+                            break
+                        else:
+                            domain+=request.POST.get('domain'+str(count)) +'; '
+                        count+=1
+                    
+                    # print(request.session['username'],event_name,date,venue,contact,about,speaker,website,domain)
+                    poster =  logo = proposal = add1 = add2 = add3 = None
+                    if 'poster' in request.FILES:
+                        poster = request.FILES['poster']
+                        poster = name_changer(request,poster,event_name)
+                    if 'Sponsorship Logo' in request.FILES:
+                        logo = request.FILES['Sponsorship Logo']
+                        logo = name_changer(request,logo,event_name)
+                    if 'proposal' in request.FILES:
+                        proposal = request.FILES['proposal']
+                        proposal = name_changer(request,proposal,event_name)
+                    if 'additional_1' in request.FILES:
+                        add1 = request.FILES['additional_1']
+                        add1 = name_changer(request,add1,event_name)
+                    if 'additional_2' in request.FILES:
+                        add2 = request.FILES['additional_2']
+                        add2 = name_changer(request,add2,event_name)
+                    if 'additional_3' in request.FILES:
+                        add3 = request.FILES['additional_3']
+                        add3 = name_changer(request,add3,event_name)
+                    org_id = Users.objects.get(username = request.session['username']).id
+                    events_db = Events(organizer = org_id,dates = date,address = venue,contact_number = contact, event_details = about, event_name = event_name, media = poster,media_1 = logo,media_2 = add1,media_3 = add2, media_4 = add3, pdf = proposal,speaker = speaker, domain = domain,website = website)
+                    events_db.save()
+                    return render(request,'events_form.html')
+                else:
+                    return render(request,'404.html')
             else:
                 return render(request,'404.html')
         else:
-            return render(request,'404.html')
-    else:
-        return render(request,'login.html')
-    # except:
-    #     return render(request,'404.html')
+            return render(request,'login.html')
+    except:
+        return render(request,'404.html')
+def name_changer(request,file,event_name):
+    _, f_ext = os.path.splitext(file.name)
+    filename = (request.session['username']) + "_" + event_name+  f_ext
+    print(filename)
+    file.name = filename
+    return file

@@ -1,0 +1,441 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/rank.css' %}">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Research Panacea</title>
+</head>
+<body>
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Research Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" to='/'>Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" to='/'>Profile</a></li>
+                    <li><a class="dropdown-item" to='/chat'>Chat</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Events
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" to='/'>Academic Events</a></li>
+                     <li><a class="dropdown-item" to='/upcomingconf'>Upcoming Conferences</a></li>
+                     <li><hr class="dropdown-divider"/></li>
+                     <li><a class="dropdown-item" to='/'>Something else here</a></li>
+                </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Research
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" to='/research'>Research Papers</a></li>
+                    <li><a class="dropdown-item" to='/'>Collaborate</a></li>
+                    <li><hr class="dropdown-divider"/></li>
+                    <li><a class="dropdown-item" to='/'>Something else here</a></li>
+                </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+              <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
+            </form>
+            </div>
+        </div>
+        </nav>
+        <!-- Main Content goes here -->
+        
+<div class="container" style="margin-top: 80px;"> 
+   
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+            <div class="ibox-content forum-container">
+
+                <div class="forum-title">
+                    <div class="pull-right forum-desc">
+                        <samll>Total posts: 320,800</samll>
+                    </div>
+                    <h3>General subjects</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 d-flex justify-content-center">
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown link
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown link
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown link
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="#">Action</a></li>
+                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Search</span>
+                      </div>
+                </div>
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="forum-icon" style="margin-right: 50px;">
+                                <span class="views-number">
+                                    <img src="https://s.research.com/images/e6ad37cce9ad678b68dfacbfba8aaa7868019d9a-221x65.png" style="width: 50px;" alt="">
+                                </span>
+                                <div>
+                                    <strong>Rank:1</strong>
+                                </div>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">IEEE Transactions On Pattern Analysis and Machine Learning</a>
+                            <div class="forum-sub-title" style="padding-left: 25px;">0162-8828, Monthly </div>
+                        </div>
+                        <div class="col-md-2 forum-info">
+                            <span class="views-number">
+                                284
+                            </span>
+                            <div>
+                                <small>Top Scientists</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 forum-info">
+                            <span class="views-number">
+                                461
+                            </span>
+                            <div>
+                                <small>Documents</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 forum-info">
+                            <span class="views-number">
+                                25.25
+                            </span>
+                            <div>
+                                <small>Impact Score</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-item active">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">Announcements</a>
+                            <div class="forum-sub-title">This forum features announcements from the community staff. If there is a new post in this forum, please check it out. </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                680
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                124
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                61
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">Staff Discussion</a>
+                            <div class="forum-sub-title">This forum is for private, staff member only discussions, usually pertaining to the community itself. </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                1450
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                652
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                572
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-title">
+                    <div class="pull-right forum-desc">
+                        <samll>Total posts: 17,800,600</samll>
+                    </div>
+                    <h3>Other subjects</h3>
+                </div>
+
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum is simply dummy text. </a>
+                            <div class="forum-sub-title">Various versions have evolved over the years, sometimes by accident, sometimes on purpose passage of Lorem Ipsum (injected humour and the like).</div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                1516
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                238
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                180
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-bomb"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">There are many variations of passages</a>
+                            <div class="forum-sub-title"> If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the . </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                1766
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                321
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                42
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-bookmark"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">The standard chunk of Lorem Ipsum</a>
+                            <div class="forum-sub-title">Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                765
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                90
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                11
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum-item">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="forum-icon">
+                                <i class="fa fa-ambulance"></i>
+                            </div>
+                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum, you need to be sure there</a>
+                            <div class="forum-sub-title">Internet tend to repeat predefined chunks as necessary, making this the</div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                2550
+                            </span>
+                            <div>
+                                <small>Views</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                122
+                            </span>
+                            <div>
+                                <small>Topics</small>
+                            </div>
+                        </div>
+                        <div class="col-md-1 forum-info">
+                            <span class="views-number">
+                                92
+                            </span>
+                            <div>
+                                <small>Posts</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="footer-07">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h2 class="footer-heading"><a href="#" class="logo">Research Panachea</a></h2>
+                <p class="menu">
+                  <a href="#">Home</a>
+                  <a href="#">Research Paper</a>
+                  <a href="#">Collaborators</a>
+                  <a href="#">Profile</a>
+                </p>
+                <ul class="ftco-footer-social p-0">
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fab fa-twitter"></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"><i class="fab fa-facebook"></i></span></a></li>
+      <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fab fa-instagram"></span></a></li>
+    </ul>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <p class="copyright">
+                  Copyright &copy; Research Panachea
+              </p>
+            </div>
+        </div>
+    </div>
+</footer>   
+</body>
+<script>
+
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(window).scrollTop() < 100){
+                $(".navbar").css({"background-color":"transparent"});   
+            }
+            else{
+                $(".navbar").css({"background-color":"white"});
+            }
+    
+        })
+    })
+    </script>
+</html>

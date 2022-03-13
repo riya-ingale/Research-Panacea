@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 body{
 	/* background-image: radial-gradient(circle, #ffffff, #f1ebf5, #e8d6e8, #e4c1d5, #e0abbe); */
-	background: url('../images/bg-color.png');
+	background: url('../img/bg-color.png');
 	background-size: cover;
 }
 /* NavBar */
@@ -569,12 +569,12 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 @media (max-width: 576px) {
 	body{
 		/* background-image: radial-gradient(circle, #ffffff, #f1ebf5, #e8d6e8, #e4c1d5, #e0abbe); */
-		background: url('../images/bg-color.png');
+		background: url('../img/bg-color.png');
 		background-size:contain;
 	}
 	.navbar
 	{
-		background-image: url('../Images/light-bg.png') !important;
+		background-image: url('../img/light-bg.png') !important;
 	}
 	.navbar-collapse
 	{

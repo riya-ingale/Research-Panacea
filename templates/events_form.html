@@ -14,16 +14,16 @@
   <body>
     <section class="get_in_touch">
     <h1 class="title">Post Your Event</h1>
-    <form action="/conference/registeration" method="post">
+    <form action="/conference/registeration" method="post" enctype='multipart/form-data'>
       {% csrf_token %}
     <div class="container">
       <div class="contact-form row">
         <div class="form-field col-lg-6">
-          <input id="name" class="input-text" type="text" name="event_name">
+          <input id="name" class="input-text" type="text" name="event_name" required>
           <label for="name" class="label">Event Name</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="date" class="input-text" type="date" name="date">
+          <input id="date" class="input-text" type="date" name="date" required>
           <script>
             var date = new Date();
             document.getElementById("date-picker").value = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + String(date.getDate()).padStart(2,'0');
@@ -32,24 +32,24 @@
         </div>
 
         <div class="form-field col-lg-6">
-          <input id="venue" class="input-text" type="text" name="venue">
+          <input id="venue" class="input-text" type="text" name="venue" required>
           <label for="venue" class="label">Venue</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="phone" class="input-text" type="text" name="contact">
+          <input id="phone" class="input-text" type="text" name="contact" required>
           <label for="phone" class="label">Contact Number</label>
         </div>
         <div class="form-field col-lg-12">
-          <textarea placeholder="" rows="2" class="input-text" name="about"></textarea>
+          <textarea placeholder="" rows="2" class="input-text" name="about" required></textarea>
           <label for="about" class="label">About the Event</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="committee" class="input-text" type="text" name="speaker">
+          <input id="committee" class="input-text" type="text" name="speaker" required>
           <label for="committee" class="label">Speaker Name(s)</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="website" class="input-text" type="text" name="website">
-          <label for="website" class="label">Website</label>
+          <input id="website" class="input-text" type="text" name="website" required>
+          <label for="website" class="label">Website/Forms </label>
         </div>
         <div id="" class="lfield form-field col-lg-12">
           <input placeholder="Domain" type="text" id="i" class="input-text"></input>
@@ -60,29 +60,29 @@
           </div>
         </div>
         <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <input id="image" class="input-text" type="file" onchange="readURL(this)"  accept="image/*" name="poster" required>
           <label for="image" class="label">Event Poster</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
-          <label for="image" class="label">Sponsorship Logo</label>
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" name="Sponsorship Logo">
+          <label for="image" class="label">Sponsorship Logo (Optional)</label>
         </div>
 
         <div class="form-field col-lg-6">
-          <input id="spomsor-logo" class="input-text" type="file" onchange="readURL(this)" accept="application/pdf">
+          <input id="spomsor-logo" class="input-text" type="file" name="proposal" onchange="readURL(this)" accept="application/pdf" required>
           <label for="sponsor-logo" class="label">Proposal</label>
         </div>
 
         <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" name="additional_1">
           <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" name="additional_2">
           <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         <div class="form-field col-lg-6">
-          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" >
+          <input id="image" class="input-text" type="file" onchange="readURL(this)" accept="Image/*" name="additional_3">
           <label for="image" class="label">Additional Image (Optional)</label>
         </div>
         
@@ -126,6 +126,7 @@
 		
 		// get current value of text input as n
 		n = $("#i").val();
+    console.log(n);
 		
 		// only add if n is not empty
 		if(n.length>0){
@@ -137,9 +138,9 @@
 			if($.inArray(n,list)===-1){
 				// add n to list
 				list.push(n);
-				
+				console.log(list);
 				// display n in the test div set its id as n
-				$("#test").append("<div class='clickme' id='"+n+"'>"+n+"<img alt'Smiley face'  src='https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790846-9cancel_84247.png'></div>");
+				$("#test").append("<div class='clickme' id='"+n+"'>"+n+"<input placeholder='domain' type='text' style='display: none !important' name='domain"+list.length+"' id='' value = '"+n+"' class='input-text'></input><img alt'Smiley face'  src='https://cdn.icon-icons.com/icons2/1244/PNG/512/1492790846-9cancel_84247.png'></div>");
 			}
 		}
 	});
