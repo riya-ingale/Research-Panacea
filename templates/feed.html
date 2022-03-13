@@ -77,6 +77,9 @@
                         <li><a class="dropdown-item" href='/collaboration/chat/'>Chat with Collaborators</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href='/conference/calender/'>Calender</a>
+                </li>
             </ul>
             <form class="d-flex" action="/logout/" method="POST">
                 {% csrf_token %}
@@ -100,7 +103,7 @@
                     <div class="calender-card">
                     <p>Today</p>
                     <div>
-                        <p>22nd April 2018</p>
+                        <p>14nd March 2022</p>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="512" height="512" viewBox="0 0 172 172" style=" fill:#000000;">
                         <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                             <path d="M0,172v-172h172v172z" fill="none"></path>
@@ -117,17 +120,25 @@
 
                 <!--  Upcoming Events  -->
                 <section class="upcoming-events">
-                    <p class="title"><button class="btn event-btn">Upcoming Events</button></p>
+                    <p class="title"><button class="btn event-btn">Upcoming Academic Events and Conferences</button></p>
                     <div class="event-tabs show-div">   
-                        <div class="tab">
-                            <p class="event-time">10:30 am</p>
-                            <p class="event-detail">Monday briefing with the team.</p>
-                        </div>
+                        <form method="GET" action="/conference/conf_details/17">
+                            <button type="submit" style="border:none; background-color: transparent;">
+                                <div class="tab">
+                                    <p class="event-time">03:00 pm</p>
+                                    <p class="event-detail text-muted">1105th International Conference On Electrical and Electronics Engineering (ICEEE)</p>
+                                </div>
+                            </button>
+                            </form>
 
-                        <div class="tab">
-                            <p class="event-time">10:30 am</p>
-                            <p class="event-detail">Monday briefing with the team.</p>
-                        </div>
+                        <form method="GET" action="/conference/conf_details/18">
+                            <button type="submit" style="border:none; background-color: transparent;">
+                                <div class="tab">
+                                    <p class="event-time">05:00 pm</p>
+                                    <p class="event-detail text-muted">International Conference on Artificial Intelligence, Machine Learning and Big Data Engineering (ICAIMLBDE)</p>
+                                </div>
+                            </button>
+                            </form>
                     </div>
                     <p style="text-align: center;">
                     <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 32px;">
@@ -135,16 +146,24 @@
                     </button>
                       </p>
                       <div class="collapse" id="collapseExample">
-                        <div class="event-tabs show-div">   
+                        <div class="event-tabs show-div">
+                        <form method="GET" action="/conference/conf_details/19">
+                        <button type="submit" style="border:none; background-color: transparent;">
                             <div class="tab">
-                                <p class="event-time">10:30 am</p>
-                                <p class="event-detail">Monday briefing with the team.</p>
+                                <p class="event-time">05:00 pm</p>
+                                <p class="event-detail text-muted">National Conference on Recent Innovations in Science, Engineering and Technology (NCRISET)</p>
                             </div>
+                        </button>
+                        </form>    
     
-                            <div class="tab">
-                                <p class="event-time">10:30 am</p>
-                                <p class="event-detail">Monday briefing with the team.</p>
-                            </div>
+                        <form method="GET" action="/conference/conf_details/20">
+                            <button type="submit" style="border:none; background-color: transparent;">
+                                <div class="tab">
+                                    <p class="event-time">Tomorrow, 05:00 pm</p>
+                                    <p class="event-detail text-muted">International Conference on Smart Technology, Electrical and Electronics Engineering (ICSTEEE))</p>
+                                </div>
+                            </button>
+                            </form>
                         </div>
                       </div>
                 </section>

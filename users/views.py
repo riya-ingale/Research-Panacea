@@ -350,7 +350,7 @@ def editprofile(request):
 
 def addcertification(request):
     if 'username' in request.session:
-        user = Users.objects.filter(username = request.session['username'])
+        user = Users.objects.filter(username = request.session['username'])[0]
         if request.method == 'GET':
             return render(request, 'certificate-form.html')
         elif request.method == "POST":

@@ -160,3 +160,6 @@ def name_changer(request,file,event_name):
     print(filename)
     file.name = filename
     return file
+
+def calender(request):
+    return render(request, 'calender.html')    
