@@ -161,7 +161,7 @@ body {
   border-radius: 80px;
   padding: 5px;
   margin-right: 3px;
-  margin-bottom: 10px !important;
+  margin-bottom: 30px !important;
 }
 .btn-view {
   background-color: #ab72f3;
@@ -593,6 +593,9 @@ body {
 .sb-style-5.hover {
   background-color: #fff;
   box-shadow: 0 12px 20px 1px rgba(64, 64, 64, 0.11);
+}
+.rpcard{
+  height: 300px!important;
 }
 /* Footer */
 .blockquote {

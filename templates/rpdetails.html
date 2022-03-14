@@ -38,92 +38,59 @@
     <title>Research Panacea</title>
   </head>
   <body style="background-image: url('../static/img/light-bg.png')">
-    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Research Portal</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          <a class="navbar-brand" href="#">Research Panacea</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" to="/">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Profile
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href='/feed/'>Home</a>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" to="/">Profile</a></li>
-                <li><a class="dropdown-item" to="/chat">Chat</a></li>
+                  <li><a class="dropdown-item" href='/userprofile/'>Profile</a></li>
+                  <li><a class="dropdown-item" href='/collaboration/chat/'>Chat</a></li>
+                  <li><a class="dropdown-item" href='/recommendation/'>Recommend Me</a></li>
               </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Events
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Events
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" to="/">Academic Events</a></li>
-                <li>
-                  <a class="dropdown-item" to="/upcomingconf"
-                    >Upcoming Conferences</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" to="/">Something else here</a></li>
+                   <li><a class="dropdown-item" href='/conference/upcoming_event'>Academic Events</a></li>
+                   <li><a class="dropdown-item" href='/conference/upcoming_conf'>Upcoming Conferences</a></li>
+                   <li><hr class="dropdown-divider"/></li>
+                   <!-- <li><a class="dropdown-item" to='/'>Something else here</a></li> -->
               </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Research
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Research
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" to="/research">Research Papers</a>
-                </li>
-                <li><a class="dropdown-item" to="/">Collaborate</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" to="/">Something else here</a></li>
+                  <li><a class="dropdown-item" href='/researchpapers/'>Research Papers</a></li>
+                  <li><a class="dropdown-item" href='/collaboration/viewcollaborations/'>Find Collab Request</a></li>
+                  <li><hr class="dropdown-divider"/></li>
+                  <!-- <li><a class="dropdown-item" to='/'>Something else here</a></li> -->
               </ul>
-            </li>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href='/conference/journals'>Journals</a>
+              </li>
           </ul>
           <form class="d-flex">
-            <button type="button" class="btn btn-outline-dark navbar-btn">
-              Log Out
-            </button>
+            <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
           </form>
-        </div>
+          </div>
       </div>
-    </nav>
+      </nav>
     <!-- Main Content goes here -->
     <div class="blog-single" style="margin-top: 90px">
       <div class="container">
@@ -249,17 +216,13 @@
                             <span class="d-block font-weight-bold name"></span>
                               Marry Andrews</span
                             ><span class="date text-black-50"
-                              >Shared publicly - Jan 2020</span
+                              >Shared publicly - Mar 2022</span
                             >
                           </div>
                         </div>
                         <div class="mt-2">
                           <p class="comment-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.
+                           It is a great read and wonderful paper.I hope this research further goes to production
                           </p>
                         </div>
                       </div>
@@ -339,20 +302,15 @@
                                 class="d-flex flex-column justify-content-start ml-2"
                               >
                                 <span class="d-block font-weight-bold name"
-                                  >Marry Andrews</span
+                                  >Rajeev064</span
                                 ><span class="date text-black-50"
-                                  >Shared publicly - Jan 2020</span
+                                  >Shared publicly - Mar 2022</span
                                 >
                               </div>
                             </div>
                             <div class="mt-2">
                               <p class="comment-text">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.
+                                Thank You.
                               </p>
                             </div>
                           </div>
@@ -449,14 +407,15 @@
                   <hr>
                   {% if paper.url %}
                   <br/>
-                  <p>
-                    <form method="GET" action="{{paper.url}}">
-                    <button class="btn btn-primary" type="submit" value="Visit">Visit Link</button>
-                    </form>
-                  </p>
-                  {% endif %}
+                  
                   
                 </div>
+                <p>
+                  <form method="GET" action="{{paper.url}}">
+                  <button class="btn btn-primary" type="submit" value="Visit">Visit Link</button>
+                  </form>
+                </p>
+                {% endif %}
               </div>
             </div>
             <!-- End widget Tags -->

@@ -117,7 +117,7 @@ body {
 .blog-aside .widget-title h3 {
   font-size: 20px;
   font-weight: 700;
-  color: #fc5356;
+  color: #20247b;
   margin: 0;
 }
 .blog-aside .widget-author .media {
@@ -227,7 +227,7 @@ body {
 }
 .article .article-title h6 a {
   text-transform: uppercase;
-  color: #fc5356;
+  color: #20247b;
   border-bottom: 1px solid #fc5356;
 }
 .article .article-title h2 {
@@ -250,7 +250,7 @@ body {
 }
 .article .article-title .media .media-body label {
   font-weight: 600;
-  color: #fc5356;
+  color: #20247b;
   margin: 0;
 }
 .article .article-title .media .media-body span {
@@ -275,7 +275,7 @@ body {
 .article .article-content blockquote p {
   font-size: 20px;
   font-weight: 500;
-  color: #fc5356;
+  color: #20247b;
   margin: 0;
 }
 .article .article-content blockquote .blockquote-footer {

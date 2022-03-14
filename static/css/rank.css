@@ -2,7 +2,7 @@
 body{
 	/* background-image: radial-gradient(circle, #ffffff, #f1ebf5, #e8d6e8, #e4c1d5, #e0abbe); */
 	background: url('../images/bg-color.png');
-	background-size: cover;
+	background-size:contain !important;
 	width: 100vw;
   overflow-x: hidden;
 }
@@ -44,7 +44,7 @@ body{
 
     
     .white-bg {
-      background-color: rgb(255, 255, 255,0.6) !important;
+      background-color: rgb(255, 255, 255,0.5) !important;
     }
     .page-heading {
         border-top: 0;

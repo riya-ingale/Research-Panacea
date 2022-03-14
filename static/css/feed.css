@@ -371,7 +371,7 @@ div.tab:hover p {
 
 .btn-add {
   border-radius: 0px;
-  background-color: rgba(53, 22, 90, 0.5);
+  background-color: rgba(151, 133, 173, 0.5);
   color: #000;
 }
 @media screen and (min-width: 480px) {

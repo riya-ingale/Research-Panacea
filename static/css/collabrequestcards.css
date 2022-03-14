@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 body {
   /* background-image: radial-gradient(circle, #ffffff, #f1ebf5, #e8d6e8, #e4c1d5, #e0abbe); */
-  background: url("../img/light-bg.png");
-  background-size: cover;
+  background: url("../img/bg-color.png");
+  background-size: contain;
 }
 /* NavBar */
 .navbar {

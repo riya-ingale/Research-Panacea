@@ -137,7 +137,7 @@ body{
 }
 
 .users .person:hover {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     /* Fallback Color */
     background-image: -webkit-gradient(linear, left top, left bottom, from(#e9eff5), to(#ffffff));
     /* Saf4+, Chrome */
@@ -311,7 +311,7 @@ body{
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: #ffffff;
+    background: transparent;
     font-weight: 300;
     line-height: 150%;
     position: relative;
@@ -405,7 +405,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-top: 1px solid white;
 }
 
@@ -416,7 +416,7 @@ ul {
 }
 .card {
     border: 0;
-    background-color: rgb(255, 255, 255,0.7) !important;
+    /* background-color: rgb(255, 255, 255,0.7) !important; */
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;

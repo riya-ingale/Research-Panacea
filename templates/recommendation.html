@@ -38,92 +38,59 @@
     <title>Research Panacea</title>
   </head>
   <body style="background-image: url('../static/img/light-bg.png')">
-    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light">
+    <nav id="mynav" class="navbar fixed-top navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Research Portal</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          <a class="navbar-brand" href="#">Research Panacea</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" to="/">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Profile
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href='/feed/'>Home</a>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" to="/">Profile</a></li>
-                <li><a class="dropdown-item" to="/chat">Chat</a></li>
+                  <li><a class="dropdown-item" href='/userprofile/'>Profile</a></li>
+                  <li><a class="dropdown-item" href='/collaboration/chat/'>Chat</a></li>
+                  <li><a class="dropdown-item" href='/recommendation/'>Recommend Me</a></li>
               </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Events
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Events
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" to="/">Academic Events</a></li>
-                <li>
-                  <a class="dropdown-item" to="/upcomingconf"
-                    >Upcoming Conferences</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" to="/">Something else here</a></li>
+                   <li><a class="dropdown-item" href='/conference/upcoming_event'>Academic Events</a></li>
+                   <li><a class="dropdown-item" href='/conference/upcoming_conf'>Upcoming Conferences</a></li>
+                   <li><hr class="dropdown-divider"/></li>
+                   <!-- <li><a class="dropdown-item" to='/'>Something else here</a></li> -->
               </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Research
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Research
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" to="/research">Research Papers</a>
-                </li>
-                <li><a class="dropdown-item" to="/">Collaborate</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" to="/">Something else here</a></li>
+                  <li><a class="dropdown-item" href='/researchpapers/'>Research Papers</a></li>
+                  <li><a class="dropdown-item" href='/collaboration/viewcollaborations/'>Find Collab Request</a></li>
+                  <li><hr class="dropdown-divider"/></li>
+                  <!-- <li><a class="dropdown-item" to='/'>Something else here</a></li> -->
               </ul>
-            </li>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href='/conference/journals'>Journals</a>
+              </li>
           </ul>
-          <form method="POST" class="d-flex" action="/logout">
-            <button type="submit" class="btn btn-outline-dark navbar-btn">
-              Log Out
-            </button>
+          <form class="d-flex">
+            <button type="button" class="btn btn-outline-dark navbar-btn">Log Out</button>
           </form>
-        </div>
+          </div>
       </div>
-    </nav>
+      </nav>
     <!-- Main Content goes here -->
     <div class="container" style="margin-top: 85px">
       <p>
@@ -158,9 +125,9 @@
                 <p>{{c.description}}</p>
               </li>
 
-              <li class="mt-25 skilllist" style="margin-bottom: 12px">
+              <li class="mt-25 skilllist" style="height: 100px;" >
                 {% for skill in skills|index:forloop.counter0 %}
-                <span class="text-110 skillspan"> {{skill}} </span>
+                <span class="mt-25 text-110 skillspan"> {{skill}} </span><span></span>
                 {% endfor %}
               </li>
             </ul>
@@ -197,10 +164,10 @@
       <div class="row">
         {% for r in res_papers %}
         <div class="col-md-4" style="margin-top: 27px">
-          <div class="card p-3 bgc-white">
+          <div class="card p-3 bgc-white rpcard">
             <div class="d-flex flex-row mb-3">
-              <img src="{% static 'img/research-paper.jpeg' %}" width="70" />
-              <div class="d-flex flex-column ml-2">
+              <img src="{% static 'img/research-paper.jpeg' %}" style="height: 80px;" />
+              <div class="d-flex flex-column ml-2" style="height: 140px;">
                 {% if r.journal_name %}
                 <span>{{r.journal_name}}</span>
                 {% else %}

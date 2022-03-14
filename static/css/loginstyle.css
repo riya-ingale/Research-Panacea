@@ -9,12 +9,14 @@
 body,
 input {
   font-family: "Poppins", sans-serif;
+  background: url('../img/light-bg.png') !important;
+  background-size:cover;
 }
 
 .container {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: transparent;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -134,12 +136,11 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #9037f7;
   border: none;
   outline: none;
   height: 49px;
   border-radius: 49px;
-  color: #fff;
+  color: #000;
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
