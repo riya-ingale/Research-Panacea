@@ -10,6 +10,7 @@ from users.models import Users
 from users.models import Events
 import os
 from users.models import Journals
+import random
 # Create your views here.
 def upcoming_conf(request):
     try:
@@ -25,10 +26,13 @@ def upcoming_conf(request):
                 d = str(day) + " " + str(month) + " " + str(year)
                 date =  datetime.strptime(d, '%d %b %Y')
                 filt = Conference.objects.distinct().filter(timedate__gte = date)
-                print(len(filt))
+                image_list = ['img/conf-1.jpeg','img/conf_page.jpg','img/conf-3.jpeg','img/conf-4.jpeg'] 
+                img = [image_list[random.randint(0,3)] for i in range(len(filt))]
                 context = {
-                    'allconf':filt
-                }    
+                    'allconf':filt,
+                    'image':img
+                }
+    
                 return render(request,'upcomingconf.html',context)
             else:
                 return render(request,'404.html')

@@ -83,7 +83,7 @@ body {
 }
 
 .blog-cover {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/yosemite-3.jpg");
+  background: url("https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png");
   background-size: cover;
   border-radius: 5px 5px 0 0;
   height: 15rem;
@@ -99,7 +99,7 @@ body {
 
 .blog-author h3::before,
 .blog-author--no-cover h3::before {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/russ.jpeg");
+  background: url("https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png");
   background-size: cover;
   border-radius: 50%;
   content: " ";

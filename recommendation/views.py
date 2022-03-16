@@ -86,7 +86,8 @@ def recommendation(request):
             for i in collab:
                 c = CollaborationRequests.objects.filter(id = i)[0]
                 collabs.append(c)
-                skills.append(c.skills.split(';')) 
+                v = c.skills.split(';')
+                skills.append(v if len(v)<=2 else v[:2]) 
             uskills = []    
             for u in users:
                 u = Users.objects.filter(id = u)[0]

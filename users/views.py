@@ -129,6 +129,8 @@ def researchpapers(request):
                 paper = ResearchPapers.objects.filter(id= ppr.research_id)[0]
                 saved_papers.append(paper)
             print(saved_papers)
+            for p in saved_papers:
+                p.abstract = p.abstract[:300]
             context = {
                 'allpapers':allpapers,
                 'saved_papers':saved_papers,
@@ -437,6 +439,8 @@ def otherprofile(request,uid):
 
 
 def logout(request):
-    if request.method == "POST":
+    if 'username' in request.session:
         del request.session['username']
         return redirect('/login/')
+    else:
+        return redirect('/login/')    
